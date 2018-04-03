@@ -2,8 +2,8 @@ body {
   font-family: sans-serif;
 }
 
-.buttoner {
-  font-size: 20px;
+#buttoner {
+  font-size: 60px;
 }
 
 .AboutMe {
@@ -22,14 +22,4 @@ body {
 #portfolio {
   padding-top:30px;
   padding-bottom: 60px;
-}
-}
-
-ul.posts { 
-    margin: 20px auto 40px; 
-    font-size: 1.5em;
-}
-
-ul.posts li {
-    list-style: none;
 }
