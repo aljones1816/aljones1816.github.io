@@ -4,28 +4,56 @@
 		<title>Alan Jones</title>
 		<!-- link to main stylesheet -->
 		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		<!-- Link to Bootstrap -->
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+		<!-- link to font-awesome icons -->
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+		<!-- link to fixed top navbar from bootstrap -->
+		<link href="navbar-fixed-top.css" rel="stylesheet">
 	</head>
 	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about.html">About</a></li>
-        		<li><a href="/resume">Resume</a></li>
-        		<li><a href="/projects.html">Projects</a></li>
-    		</ul>
-		</nav>
-		<div class="container">
-    		<div class="blurb">
-        		<h1>Hi there, I'm Alan Jones.</h1>
-				<p>I am a researcher focused on computational approaches to solving questions in Earth Science. This website will contain a portfolio of my work along with an About Me section and discussions of some of my research. It is intended both as a professional page and to help me build some skills in web development and design. <a href="/about">Read more about my research...</a></p>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:alan@almjones.com">email</a></li>
-        		<li><a href="https://github.com/aljones1816">GitHub</a></li>
-			<li><a href="https://linkedin.com/in/aljones1816">LinkedIn</a></li>
-			</ul>
-		</footer>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Alan Jones</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="mailto:alan@almjones.com">Contact</a></li>
+          </ul>
+          
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+<div class="container-fluid">
+  <div class="jumbotron" id="about">
+    <h1 class="text-center">Hi, I'm Alan Jones</p>
+    <p class="text-center AboutMe">I am a researcher focused on computational approaches to solving questions in Earth Science. This website will contain a portfolio of my work along with an About Me section and discussions of some of my research. It is intended both as a professional page and to help me build some skills in web development and design.</p>
+    
+  </div>
+    <div class="row">
+  <a href="https://linkedin.com/in/aljones1816" target="_blank"><div class="col-xs-2"><button class="btn btn-block buttoner" id="buttoner"><i class="fa fa-linkedin"> </i></button></div></a>
+  <a href="https://github.com/aljones1816" target="_blank"><div class="col-xs-2"><button class="btn btn-block buttoner" id="buttoner"><i class="fa fa-github"> </i></button></div></a>
+  </div>
+  
+  <div class="container" id="portfolio">
+    <h2 class="text-center">Portfolio</h2>
+    <div class="row">
+    <img id="mapimg" src="https://i.imgur.com/CWaVHph.png" class="col-xs-1 img-thumbnail" alt="A map showing results for voting on Prop 37 in California.">
+      <img id="mapimg" src="https://i.imgur.com/CWaVHph.png" class="col-xs-1 img-thumbnail" alt="A map showing results for voting on Prop 37 in California.">
+     
+  </div>
+  </div>
+</div>
 	</body>
 </html>
