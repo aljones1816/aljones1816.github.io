@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Wikipedia Reader Project</title>
+		<link rel="stylesheet" type="text/css" href="/css/wikireader.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<script type="text/javascript" src="aljones1816.github.io/readerjs.js"></script>
+
+</head>
+
+<body>
+<form id="form">
+
+  
+  <div id="searchBar"><input id="wikiSearchBox" type="text" placeholder="Search Wikipedia" autofocus="autofocus"><a id="wikiSearchBtn" data-toggle="tooltip" title="Search wikipedia!"><i class="fa fa-search"></a></i></input>
+  <a id="randWiki" data-toggle="tooltip" title="Random wiki!"><i class="fa fa-random"></i></a>
+  
+  </div>
+    
+
+</form>
+
+<div id="blurbs">
+  
+  <a id="link1" href="#">
+    <h1 id="text1">
+    </h1>
+  </a>
+  <p id="textbod1">
+  </p>
+  <a id="link2" href="#">
+    <h1 id="text2">
+    </h1>
+  </a>
+  <p id="textbod2">
+  </p>
+
+  <a id="link3" href="#">
+    <h1 id="text3">
+    </h1>
+  </a>
+  <p id="textbod3">
+  </p>
+
+  <a id="link4" href="#">
+    <h1 id="text4">
+    </h1>
+  </a>
+  <p id="textbod4">
+  </p>
+
+  <a id="link5" href="#">
+    <h1 id="text5">
+    </h1>
+  </a>
+  <p id="textbod5">
+  </p>
+  <div id ="secondRound">
+    <a id="link6" href="#">
+    <h1 id="text6">
+    </h1>
+  </a>
+  <p id="textbod6">
+  </p>
+      <a id="link7" href="#">
+    <h1 id="text7">
+    </h1>
+  </a>
+  <p id="textbod7">
+  </p>
+      <a id="link8" href="#">
+    <h1 id="text8">
+    </h1>
+  </a>
+  <p id="textbod8">
+  </p>
+      <a id="link9" href="#">
+    <h1 id="text9">
+    </h1>
+  </a>
+  <p id="textbod9">
+  </p>
+      <a id="link10" href="#">
+    <h1 id="text10">
+    </h1>
+  </a>
+  <p id="textbod10">
+    </p>
+    <a id="link11" href="#">
+    <h1 id="text11">
+    </h1>
+  </a>
+  <p id="textbod11">
+    </p>
+    <a id="link12" href="#">
+    <h1 id="text12">
+    </h1>
+  </a>
+  <p id="textbod12">
+    </p>
+    <a id="link13" href="#">
+    <h1 id="text13">
+    </h1>
+  </a>
+  <p id="textbod13">
+    </p>
+    <a id="link14" href="#">
+    <h1 id="text14">
+    </h1>
+  </a>
+  <p id="textbod14">
+    </p>
+    <a id="link15" href="#">
+    <h1 id="text15">
+    </h1>
+  </a>
+  <p id="textbod15">
+    </p>
+    <a id="link16" href="#">
+    <h1 id="text16">
+    </h1>
+  </a>
+  <p id="textbod16">
+    </p>
+    <a id="link17" href="#">
+    <h1 id="text17">
+    </h1>
+  </a>
+  <p id="textbod17">
+    </p>
+    <a id="link18" href="#">
+    <h1 id="text18">
+    </h1>
+  </a>
+  <p id="textbod18">
+    </p>
+    <a id="link19" href="#">
+    <h1 id="text19">
+    </h1>
+  </a>
+  <p id="textbod19">
+    </p>
+    <a id="link20" href="#">
+    <h1 id="text20">
+    </h1>
+  </a>
+  <p id="textbod20">
+    </p>
+    <a id="link21" href="#">
+    <h1 id="text21">
+    </h1>
+  </a>
+  <p id="textbod21">
+    </p>
+    <a id="link22" href="#">
+    <h1 id="text22">
+    </h1>
+  </a>
+  <p id="textbod22">
+    </p>
+    <a id="link23" href="#">
+    <h1 id="text23">
+    </h1>
+  </a>
+  <p id="textbod23">
+    </p>
+    <a id="link24" href="#">
+    <h1 id="text24">
+    </h1>
+  </a>
+  <p id="textbod24">
+    </p>
+    <a id="link25" href="#">
+    <h1 id="text25">
+    </h1>
+  </a>
+  <p id="textbod25">
+    </p>
+  </div>
+  <a id = "moreResults" href = "#secondRound"><i class="fa fa-chevron-circle-down" data-toggle="tooltip" title="More results...""></i></a>
+</div>
+
+
+</body>
+
+</html>
