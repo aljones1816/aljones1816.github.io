@@ -26,6 +26,8 @@ body {
 
 .intro {
 	margin-top: 80px;
-	margin-bottom: 50px;
 }
 
+#social {
+	margin-bottom: 50px;
+}
