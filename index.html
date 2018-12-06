@@ -1,106 +1,82 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Alan Jones</title>
-		<!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
-		<!-- Link to Bootstrap -->
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
-		<!-- link to font-awesome icons -->
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
-		<!-- link to fixed top navbar from bootstrap -->
-		<link href="navbar-fixed-top.css" rel="stylesheet">
-	</head>
-	<body>
-	
-	<!-- Nav bar -->
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-span">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="aljones1816.github.io/AlanJones_Resume.pdf" target="_blank">Resume</a></li>
-          </ul>
-          
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+<html lang="en" >
 
+<head>
+  <meta charset="UTF-8">
+  <title>Home page</title>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700" rel="stylesheet">
 
-<div class="container-fluid">
-<!-- Introduction -->
-	<div class="intro">
-    <h1 class="text-center">Hi, I'm Alan.</p>
-    <p class="text-center AboutMe">Please look around. You will find examples of GIS and web mapping projects I am working on, as well as my current resume. Feel free to reach out to ask about my work, I am always interested in opportunities to grow professionally.</p>
-	</div>
-	
-    <!-- add links to social media -->   
-    <div align="center" id="social">
-      <a href="https://linkedin.com/in/aljones1816" target="_blank"><i class="fa fa-linkedin-square" id="buttoner"></i>&nbsp;</a>
-      <a href="https://github.com/aljones1816" target="_blank"><i class="fa fa-github-square" id="buttoner"></i>&nbsp;</a>
-      <a href="mailto:alan@almjones.com"><i class="fa fa-envelope" id="buttoner"></i></a>	    
-    </div>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="css/bootstrap.css"/>
 
-  <!-- Portfolio section -->
+      <link rel="stylesheet" href="css/style.css">
+
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+
+  
+</head>
+
+<body>
+
+  <header>
+  <div id="menu">
+    <ul>
+      <li class="menu1 current">Home</li>
+      <li class="menu2">Portfolio</li>
+      <li class="menu4">Resume</li>
+    </ul>
+  </div>
+</header>
+
+<div id="home" class="page1">
+  <div class="content">
+    <div class="info">Hi, I'm Alan.</div>
+
+  </div>
+</div>
+
+<div class="portfolio page2">
+  
+  <div class="container" id="portfol-grid">
+  
   <div class="row">
-    <div class="col-lg-4 col-sm-6">
-      <div class="thumbnail">
+    <div class="col-lg-6 col-sm-6">
+      <a href="https://www.google.com/" target="_blank"><div class="thumbnail">
         <img src="https://images.unsplash.com/photo-1506153456649-ed4ed08d1e0c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d631d4911c05368cf6699b828116473d&auto=format&fit=crop&w=1950&q=80">
-      </div>
+      </div></a>
     </div>
-    <div class="col-lg-4 col-sm-6">
-      <div class="thumbnail">
-        <img src="https://images.unsplash.com/photo-1513026705753-bc3fffca8bf4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b522ae2afefadaa7290956e52c799bf2&auto=format&fit=crop&w=1350&q=80">
-      </div>
+
+    <div class="col-lg-6 col-sm-6">
+       <div id="mapid"></div>
     </div>
-    <div class="col-lg-4 col-sm-6">
-      <div class="thumbnail">
-        <img src="https://images.unsplash.com/photo-1515362856850-66df805bb388?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=84dd16c14c2fa1143e70f54d64e2933b&auto=format&fit=crop&w=1050&q=80">
-      </div>
-    </div>
-    <div class="col-lg-4 col-sm-6">
-      <div class="thumbnail">
-        <img src="https://images.unsplash.com/photo-1506239015622-cc71326f7239?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4ad541e4ce0c1ae073c45273770990b6&auto=format&fit=crop&w=1050&q=80">
-      </div>
-    </div>
-    <div class="col-lg-4 col-sm-6">
-      <div class="thumbnail">
-        <img src="https://images.unsplash.com/photo-1502656109408-152680a8ad1c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=40e160d54f5831df3d12204916d8edb1&auto=format&fit=crop&w=1050&q=80">
-      </div>
-    </div>
-    <div class="col-lg-4 col-sm-6">
-      <div class="thumbnail">
-        <img src="https://images.unsplash.com/photo-1520951097942-555bbbf3e88d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=67ec72fab3eb00310234eda97f146cc7&auto=format&fit=crop&w=1050&q=80">
-      </div>
-    </div>
-    <div class="col-lg-4 col-sm-6">
-      <div class="thumbnail">
-        <img src="https://images.unsplash.com/photo-1521768669-94a0b53f5905?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9b59f05a019b27933855997b08dcd4e5&auto=format&fit=crop&w=1050&q=80">
-      </div>
-    </div>
-    <div class="col-lg-4 col-sm-6">
-      <div class="thumbnail">
-        <img src="https://images.unsplash.com/photo-1520420097861-e4959843b682?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7a76802ff83a847d60d945e4f44cd241&auto=format&fit=crop&w=1050&q=80">
-      </div>
-    </div>
-    <div class="col-lg-4 col-sm-6">
-      <div class="thumbnail">
-        <img src="https://images.unsplash.com/photo-1518157257481-612a75ffd429?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9f46e0f8830b45212602eac72da98fb6&auto=format&fit=crop&w=1350&q=80">
-      </div>
-    </div>
+    
   </div>
 
 </div>
-		
-		
-	</body>
+  
+</div>
+
+<div id="bottomBar">
+  <a href="https://www.linkedin.com/in/aljones1816" target="_blank"><i class="fab fa-linkedin"></i></a>
+  <a href="https://github.com/aljones1816" target="_blank"><i class="fab fa-github"></i></a>
+  <a href="https://www.instagram.com/alanj1816/" target="_blank"><i class="fab fa-instagram"></i></a>
+
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+   crossorigin=""></script>
+
+
+
+</body>
+
 </html>
