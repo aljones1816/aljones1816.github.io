@@ -15,7 +15,7 @@ html {
   text-align: center;
   display: inline-block;
   height: 50px;
-  padding: 20px 20px 20px 20px;
+  padding: 0px 20px 0px 20px;
   margin: 0px;
   line-height: 48px;
   text-transform: uppercase;
@@ -136,3 +136,4 @@ a:hover {
 }
 
 #mapid { height: 241px; }
+
