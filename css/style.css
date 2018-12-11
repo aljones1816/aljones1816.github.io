@@ -137,3 +137,6 @@ a:hover {
 
 #mapid { height: 241px; }
 
+#col1 #col2 #col3 {
+	height: 100px;
+}
