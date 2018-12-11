@@ -5,10 +5,6 @@ html {
   padding: 0px;
 }
 
-body {
-    height: 100vh;
-}
-
 #menu ul {
   text-align: center;
   margin: 0px;
@@ -40,7 +36,7 @@ body {
 #home {
   background-color: #ff7e57;
   margin: 0px;
-  min-height: 90%;
+  min-height: 650px;
   width: 100%;
   color: white;
   text-align: center;
