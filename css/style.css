@@ -3,6 +3,7 @@ html {
   font-family: 'Ubuntu', sans-serif;
   margin: 0px;
   padding: 0px;
+  height: 100%;
 }
 
 #menu ul {
