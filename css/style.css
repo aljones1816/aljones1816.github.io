@@ -3,14 +3,9 @@ html {
   font-family: 'Ubuntu', sans-serif;
   margin: 0px;
   padding: 0px;
-}
-
-html {
-  height: 100%;
-}
-body {
   min-height: 100%;
 }
+
 
 #menu ul {
   text-align: center;
