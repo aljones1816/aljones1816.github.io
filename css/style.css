@@ -36,14 +36,13 @@ html {
 #home {
   background-color: #ff7e57;
   margin: 0px;
-  min-height: 700px;
+  height: 700px;
   width: 100%;
   color: white;
   text-align: center;
 }
 
 .content {
-  height: 100%;
   padding-top: 50px;
 }
 
