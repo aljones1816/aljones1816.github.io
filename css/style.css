@@ -14,7 +14,7 @@ html {
 #menu ul li {
   text-align: center;
   display: inline-block;
-  height: 50px;
+  height: 10vh;
   padding: 0px 20px 0px 20px;
   margin: 0px;
   line-height: 48px;
@@ -70,7 +70,7 @@ html {
 }
 
 #bottomBar {
-  height: 50px;
+  height: 10vh;
   background-color: white;
   text-align: right;
   font-size: 48px;
