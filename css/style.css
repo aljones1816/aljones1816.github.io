@@ -65,6 +65,7 @@ html {
 .portfolio {
  
   background: #73a1b0;
+  height: 80vh;
   display: none;
 }
 
