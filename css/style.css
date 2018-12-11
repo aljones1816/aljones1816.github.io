@@ -8,9 +8,6 @@ html {
 body {
     height: 100vh;
 }
-body {
-    min-height: 100vh;
-}
 
 #menu ul {
   text-align: center;
