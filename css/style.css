@@ -9,13 +9,13 @@ html {
   text-align: center;
   margin: 0px;
   padding: 0px;
-  height: 100px;
+  height: 50px;
 }
 
 #menu ul li {
   text-align: center;
   display: inline-block;
-  height: 100px;
+  height: 50px;
   padding: 0px 20px 0px 20px;
   margin: 0px;
   line-height: 48px;
@@ -71,7 +71,7 @@ html {
 }
 
 #bottomBar {
-  height: 100px; 
+  height: 50px; 
   background-color: white;
   text-align: right;
   font-size: 48px;
