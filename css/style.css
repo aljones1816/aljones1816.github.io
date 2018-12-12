@@ -14,8 +14,7 @@ html {
 #menu ul li {
   text-align: center;
   display: inline-block;
-  height: 5vh; /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 5);
+  height: 5vh;
   padding: 0px 20px 0px 20px;
   margin: 0px;
   line-height: 48px;
@@ -37,8 +36,7 @@ html {
 #home {
   background-color: #ff7e57;
   margin: 0px;
-  height: 90vh; /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 90);
+  height: 90vh;
   width: 100%;
   color: white;
   text-align: center;
@@ -67,14 +65,12 @@ html {
 .portfolio {
  
   background: #73a1b0;
-  height: 90vh; /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 90);
+  height: 90vh; 
   display: none;
 }
 
 #bottomBar {
-  height: 5vh; /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 5);
+  height: 5vh; 
   background-color: white;
   text-align: right;
   font-size: 48px;
