@@ -31,11 +31,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'your.mapbox.access.token'
 }).addTo(mymap);
   
-const fixables = document.querySelectorAll('.js-fix-height');
-[].forEach.call(fixables, (el) => {
-    const box = el.getBoundingClientRect();
-    // round height to nearest pixel
-    el.style.height = box.height.toFixed() + 'px';
-});  
+
   
 });
