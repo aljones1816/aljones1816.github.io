@@ -8,6 +8,7 @@ function App() {
         This site looks a bit empty! But don't worry, I'm working on it now and
         you'll see something cool soon!
       </p>
+      <p>Something REAL cool, man</p>
       <p>
         In the meantime, checkout my{" "}
         <a href="https://github.com/aljones1816">GitHub</a> to see what I've
