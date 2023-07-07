@@ -10,8 +10,8 @@ function App() {
       </p>
       <p>
         In the meantime, checkout my{" "}
-        <a href="https://github.com/aljones1816">GitHub</a>
-        to see what I've been working on, or my{" "}
+        <a href="https://github.com/aljones1816">GitHub</a> to see what I've
+        been working on, or my{" "}
         <a href="https://www.linkedin.com/in/almjones/">LinkedIn</a> to learn
         more about me.
       </p>
