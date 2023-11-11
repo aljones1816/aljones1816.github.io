@@ -8,6 +8,7 @@
 
   --color-fg: rgba(255, 255, 255, 0.87);
   --color-bg: #242424;
+  --color-pc: rgba(255, 255, 255, 0.1);
 }
 
 body {
@@ -101,11 +102,8 @@ body {
 
 /* Apply the hover effect */
 .project-link:hover .project-card {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.1
+  background-color: var(
+    --color-pc
   ); /* Transparent grey background color on hover */
   border-radius: 10px; /* Rounded edges */
 }
@@ -159,7 +157,7 @@ h2 {
     flex-direction: column-reverse;
     padding-left: 1em;
     padding-right: 1em;
-    width: calc(100%);
+    width: 100%;
   }
 
   .about-me {
@@ -251,5 +249,16 @@ h2 {
   :root {
     --color-fg: #213547;
     --color-bg: #ffffff;
+    --color-pc: rgba(0, 0, 0, 0.1);
   }
+}
+
+.about-link {
+  color: #007bff; /* Same blue color as the tech pills */
+  font-weight: bold; /* Make the text bold */
+  text-decoration: none; /* Optionally remove the underline */
+}
+
+.about-link:hover {
+  text-decoration: underline; /* Optionally add underline on hover for better UX */
 }
