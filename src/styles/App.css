@@ -1,0 +1,254 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+
+  --color-fg: rgba(255, 255, 255, 0.87);
+  --color-bg: #242424;
+}
+
+body {
+  color: var(--color-fg);
+  background-color: var(--color-bg);
+}
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.sidebar {
+  flex: 0 0 50%;
+  height: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.title {
+  padding-top: 2em;
+  width: 50%;
+}
+
+.title h1 {
+  font-weight: 700;
+  font-size: 3em;
+}
+
+.title h2 {
+  font-weight: lighter;
+}
+
+.socials {
+  padding-bottom: 10em;
+  display: inline-block;
+  width: 50%;
+}
+
+.content {
+  flex: 1;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.about-me {
+  padding: 2em 0 4em 1em;
+  width: 75%;
+}
+
+.project-image {
+  width: 120px;
+  height: 69px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  width: 75%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-right: 1em;
+}
+
+.project-link {
+  text-decoration: none; /* Remove underlines from the link */
+  color: var(--color-fg);
+  padding-bottom: 1em;
+  transition: background-color 0.2s ease-in-out; /* Smooth transition for background color */
+}
+
+/* Apply the hover effect */
+.project-link:hover .project-card {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Transparent grey background color on hover */
+  border-radius: 10px; /* Rounded edges */
+}
+
+.project-info {
+  padding-left: 1em;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.tech-pill {
+  display: inline-block;
+  background-color: #007bff; /* Background color for the pills */
+  color: #fff; /* Text color for the pills */
+  padding: 4px 8px; /* Adjust padding as needed */
+  border-radius: 16px; /* Adjust border-radius for pill shape */
+  margin-right: 8px; /* Space between pills horizontally */
+  font-size: 14px; /* Adjust font size as needed */
+  margin-top: 1em;
+}
+
+.content-header {
+  padding-left: 1em;
+  width: 75%;
+  display: none;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.photo {
+  width: 50%;
+}
+
+/* Example media query for small screens */
+@media (max-width: 640px) {
+  .project-image {
+    width: 240px;
+    height: 138px;
+    padding-top: 1em;
+  }
+
+  .project-card {
+    flex-direction: column-reverse;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: calc(100%);
+  }
+
+  .about-me {
+    padding-left: 1em;
+    padding-right: 1em;
+    width: calc(100%);
+  }
+
+  .content-header {
+    padding-left: 1em;
+    width: calc(100%);
+    display: block;
+  }
+}
+
+@media (max-width: 1008px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .content {
+    min-width: 100%;
+  }
+
+  .sidebar {
+    min-width: 100%;
+    position: auto;
+    top: auto;
+    left: auto;
+    margin-bottom: 2em;
+    padding-left: auto;
+  }
+
+  .title {
+    padding-left: 2em;
+  }
+
+  .header {
+    min-height: auto;
+    align-items: flex-start;
+  }
+
+  .about-me {
+    width: calc(100%);
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 0;
+  }
+
+  .project-card {
+    width: calc(100%);
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+
+  .socials {
+    padding-bottom: 1em;
+    padding-top: 1em;
+    padding-left: 2em;
+  }
+
+  .content-header {
+    padding-left: 2em;
+    width: calc(100%);
+    display: block;
+  }
+
+  .profile-pic {
+    display: none;
+  }
+}
+
+/* Style the social icons for the default state */
+.socials a {
+  color: rgba(128, 128, 128, 0.5); /* Transparent grey color */
+  text-decoration: none;
+  margin-right: 10px; /* Adjust spacing between icons */
+  font-size: 24px; /* Adjust font size as needed */
+  transition: color 0.2s, transform 0.2s; /* Transition for color and size changes */
+}
+
+/* Style the social icons for the hover state */
+.socials a:hover {
+  color: var(--color-fg); /* White color on hover */
+  transform: scale(1.1); /* Grow by 10% on hover */
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-fg: #213547;
+    --color-bg: #ffffff;
+  }
+}
