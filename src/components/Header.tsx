@@ -11,7 +11,10 @@ const Header = () => {
       <div className="title">
         <h1>Alan Jones</h1>
         <h2>Full Stack Developer</h2>
-        <p>I build engaging software for the web.</p>
+        <p>
+          I develop thoughtful web software to create enriching user
+          experiences.
+        </p>
       </div>
       <div className="photo">
         <img src={profilePic} alt="Alan Jones" className="profile-pic"></img>
