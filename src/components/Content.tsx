@@ -4,7 +4,7 @@ import About from "./About";
 
 function Content() {
   return (
-    <div>
+    <div className="content">
       <p className="content-header">
         <b>About</b>
       </p>
@@ -12,9 +12,11 @@ function Content() {
       <p className="content-header">
         <b>Projects</b>
       </p>
-      {projects.map((project) => (
-        <Project key={project.id} {...project} />
-      ))}
+      <div className="projects">
+        {projects.map((project) => (
+          <Project key={project.id} {...project} />
+        ))}
+      </div>
     </div>
   );
 }

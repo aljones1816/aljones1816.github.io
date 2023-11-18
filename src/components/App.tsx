@@ -5,12 +5,9 @@ import Content from "./Content";
 function App() {
   return (
     <div className="app">
-      <div className="sidebar">
-        <Header />
-      </div>
-      <div className="content">
-        <Content />
-      </div>
+      <Header />
+
+      <Content />
     </div>
   );
 }

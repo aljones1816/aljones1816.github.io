@@ -14,16 +14,8 @@ function Project({
   techStack,
 }: ProjectProps) {
   return (
-    <a href={liveUrl} className="project-link">
-      <div className="project-card">
-        <div className="project-thumb">
-          <img
-            className="project-image"
-            loading="lazy"
-            src={imageUrl}
-            alt={title}
-          />
-        </div>
+    <div className="project-card">
+      <a href={liveUrl} className="project-link">
         <div className="project-info">
           <h2>{title}</h2>
           <p>{description}</p>
@@ -36,8 +28,8 @@ function Project({
             ))}
           </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   );
 }
 

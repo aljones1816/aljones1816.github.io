@@ -25,33 +25,30 @@ body {
 
 .app {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   min-height: 100vh;
-}
-
-.sidebar {
-  flex: 0 0 50%;
-  height: 100%;
-  position: sticky;
-  top: 0;
-  left: 0;
+  width: 100%;
+  max-width: 1600px;
 }
 
 .header {
+  padding: 2em;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 100vh;
+  flex-direction: row;
+  width: 75%;
 }
 
 .title {
-  padding-top: 2em;
-  width: 50%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .title h1 {
+  padding: 0;
+  margin: 0;
   font-weight: 700;
   font-size: 3em;
 }
@@ -60,56 +57,61 @@ body {
   font-weight: lighter;
 }
 
-.socials {
-  padding-bottom: 10em;
-  display: inline-block;
-  width: 50%;
-}
-
-.content {
+.profile {
   flex: 1;
-  height: 100%;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.about-me {
-  padding: 2em 0 4em 1em;
-  width: 75%;
+.socials {
+  height: 50%;
+  display: flex;
+  padding-top: 1em;
+  justify-content: center;
 }
 
-.project-image {
-  width: 120px;
-  height: 69px;
+.profile-pic {
+  border-radius: 50%;
+  border-color: var(--color-fg);
+  border-width: 0.25em;
+  border-style: solid;
+  width: 175px;
+  height: 175px;
   object-fit: cover;
 }
 
-.project-card {
+.photo {
+  height: 50%;
+  min-height: 190px;
   display: flex;
-  flex-direction: row;
-  padding: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.about-me {
   width: 75%;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-right: 1em;
+}
+.projects {
+  display: flex;
+
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: #007bff;
 }
 
-.project-link {
-  text-decoration: none; /* Remove underlines from the link */
-  color: var(--color-fg);
-  padding-bottom: 1em;
-  transition: background-color 0.2s ease-in-out; /* Smooth transition for background color */
-}
-
-/* Apply the hover effect */
-.project-link:hover .project-card {
-  background-color: var(
-    --color-pc
-  ); /* Transparent grey background color on hover */
-  border-radius: 10px; /* Rounded edges */
-}
-
-.project-info {
-  padding-left: 1em;
+.project-card {
+  margin: 1em;
+  border: 1px solid white;
+  flex: 0 1 calc(25% - 2em);
+  background-color: aquamarine;
 }
 
 h2 {
@@ -119,59 +121,21 @@ h2 {
 
 .tech-pill {
   display: inline-block;
-  background-color: #007bff; /* Background color for the pills */
-  color: #fff; /* Text color for the pills */
-  padding: 4px 8px; /* Adjust padding as needed */
-  border-radius: 16px; /* Adjust border-radius for pill shape */
-  margin-right: 8px; /* Space between pills horizontally */
-  font-size: 14px; /* Adjust font size as needed */
+  background-color: #007bff;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 16px;
+  margin-right: 8px;
+  font-size: 14px;
   margin-top: 1em;
 }
 
 .content-header {
   padding-left: 1em;
   width: 75%;
-  display: none;
-}
-
-.profile-pic {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-}
-
-.photo {
-  width: 50%;
 }
 
 /* Example media query for small screens */
-@media (max-width: 640px) {
-  .project-image {
-    width: 240px;
-    height: 138px;
-    padding-top: 1em;
-  }
-
-  .project-card {
-    flex-direction: column-reverse;
-    padding-left: 1em;
-    padding-right: 1em;
-    width: 100%;
-  }
-
-  .about-me {
-    padding-left: 1em;
-    padding-right: 1em;
-    width: calc(100%);
-  }
-
-  .content-header {
-    padding-left: 1em;
-    width: calc(100%);
-    display: block;
-  }
-}
 
 @media (max-width: 1008px) {
   .app {
@@ -182,15 +146,6 @@ h2 {
     min-width: 100%;
   }
 
-  .sidebar {
-    min-width: 100%;
-    position: auto;
-    top: auto;
-    left: auto;
-    margin-bottom: 2em;
-    padding-left: auto;
-  }
-
   .title {
     padding-left: 2em;
   }
@@ -198,6 +153,12 @@ h2 {
   .header {
     min-height: auto;
     align-items: flex-start;
+    min-width: 100%;
+    position: auto;
+    top: auto;
+    left: auto;
+    margin-bottom: 2em;
+    padding-left: auto;
   }
 
   .about-me {
@@ -208,9 +169,7 @@ h2 {
   }
 
   .project-card {
-    width: calc(100%);
-    padding-left: 2em;
-    padding-right: 2em;
+    flex: 0 1 calc(50% - 2em); /* 2 cards per row */
   }
 
   .socials {
@@ -224,9 +183,28 @@ h2 {
     width: calc(100%);
     display: block;
   }
+}
 
-  .profile-pic {
-    display: none;
+@media (max-width: 640px) {
+  .project-card {
+    flex: 0 1 calc(100% - 2em);
+  }
+
+  .project-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .about-me {
+    padding-left: 1em;
+    padding-right: 1em;
+    width: calc(100%);
+  }
+
+  .content-header {
+    padding-left: 1em;
+    width: calc(100%);
+    display: block;
   }
 }
 
@@ -234,15 +212,15 @@ h2 {
 .socials a {
   color: rgba(128, 128, 128, 0.5); /* Transparent grey color */
   text-decoration: none;
-  margin-right: 10px; /* Adjust spacing between icons */
-  font-size: 24px; /* Adjust font size as needed */
-  transition: color 0.2s, transform 0.2s; /* Transition for color and size changes */
+  margin-right: 10px;
+  font-size: 24px;
+  transition: color 0.2s, transform 0.2s;
 }
 
 /* Style the social icons for the hover state */
 .socials a:hover {
-  color: var(--color-fg); /* White color on hover */
-  transform: scale(1.1); /* Grow by 10% on hover */
+  color: var(--color-fg);
+  transform: scale(1.1);
 }
 
 @media (prefers-color-scheme: light) {
@@ -254,11 +232,11 @@ h2 {
 }
 
 .about-link {
-  color: #007bff; /* Same blue color as the tech pills */
-  font-weight: bold; /* Make the text bold */
-  text-decoration: none; /* Optionally remove the underline */
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .about-link:hover {
-  text-decoration: underline; /* Optionally add underline on hover for better UX */
+  text-decoration: underline;
 }
