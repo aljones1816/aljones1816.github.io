@@ -104,14 +104,13 @@ body {
 
   flex-wrap: wrap;
   width: 100%;
-  background-color: #007bff;
 }
 
 .project-card {
   margin: 1em;
   border: 1px solid white;
   flex: 0 1 calc(25% - 2em);
-  background-color: aquamarine;
+  border-radius: 5%;
 }
 
 h2 {
