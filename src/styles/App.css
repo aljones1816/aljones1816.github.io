@@ -108,9 +108,38 @@ body {
 
 .project-card {
   margin: 1em;
+  padding: 1em;
   border: 1px solid white;
-  flex: 0 1 calc(25% - 2em);
-  border-radius: 5%;
+  flex: 0 1 calc(33.333% - 2em);
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.project-card a {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-link {
+  text-decoration: none;
+  color: var(--color-fg);
+}
+
+.project-thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thumbnail-img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+}
+
+.project-card:hover {
+  background-color: var(--color-pc);
+  transform: scale(1.02);
 }
 
 h2 {
@@ -137,27 +166,8 @@ h2 {
 /* Example media query for small screens */
 
 @media (max-width: 1008px) {
-  .app {
-    flex-direction: column;
-  }
-
   .content {
     min-width: 100%;
-  }
-
-  .title {
-    padding-left: 2em;
-  }
-
-  .header {
-    min-height: auto;
-    align-items: flex-start;
-    min-width: 100%;
-    position: auto;
-    top: auto;
-    left: auto;
-    margin-bottom: 2em;
-    padding-left: auto;
   }
 
   .about-me {
@@ -171,12 +181,6 @@ h2 {
     flex: 0 1 calc(50% - 2em); /* 2 cards per row */
   }
 
-  .socials {
-    padding-bottom: 1em;
-    padding-top: 1em;
-    padding-left: 2em;
-  }
-
   .content-header {
     padding-left: 2em;
     width: calc(100%);
@@ -185,6 +189,10 @@ h2 {
 }
 
 @media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    padding: 0;
+  }
   .project-card {
     flex: 0 1 calc(100% - 2em);
   }
@@ -204,6 +212,10 @@ h2 {
     padding-left: 1em;
     width: calc(100%);
     display: block;
+  }
+
+  .title {
+    padding: 0;
   }
 }
 

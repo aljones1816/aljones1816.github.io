@@ -15,7 +15,12 @@ function Project({
 }: ProjectProps) {
   return (
     <div className="project-card">
-      <a href={liveUrl} className="project-link">
+      <a
+        href={liveUrl}
+        className="project-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <div className="project-info">
           <h2>{title}</h2>
           <p>{description}</p>
@@ -27,6 +32,9 @@ function Project({
               </span>
             ))}
           </div>
+        </div>
+        <div className="project-thumbnail">
+          <img src={imageUrl} alt="" className="thumbnail-img" />
         </div>
       </a>
     </div>

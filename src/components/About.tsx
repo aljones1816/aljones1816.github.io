@@ -6,6 +6,8 @@ function About() {
         <a
           href="https://www.sciencedirect.com/science/article/pii/S0277379122001901"
           className="about-link"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           studying paleoclimatology
         </a>
@@ -16,6 +18,8 @@ function About() {
         <a
           href="https://viewer.dnv.com/macustomerprofile/entity/1444/report/2078"
           className="about-link"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           data platform
         </a>{" "}

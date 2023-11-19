@@ -13,10 +13,18 @@ const Header = () => {
           <img src={profilePic} alt="Alan Jones" className="profile-pic"></img>
         </div>
         <div className="socials">
-          <a href="https://www.linkedin.com/in/almjones/">
+          <a
+            href="https://www.linkedin.com/in/almjones/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <IconBrandLinkedin size={40} />
           </a>
-          <a href="https://github.com/aljones1816">
+          <a
+            href="https://github.com/aljones1816"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <IconBrandGithub size={40} />
           </a>
 
