@@ -27,7 +27,7 @@ const projects = [
   {
     id: 3,
     title: "John Conway's Game of Life.",
-    description: "An interactive cellular automation game",
+    description: "An interactive cellular automation game.",
     imageUrl: gameOfLife,
     repoUrl: "",
     liveUrl: "https://github.com/joshua-a-jones/game-of-life",
@@ -40,7 +40,7 @@ const projects = [
     imageUrl: simpleTemp,
     repoUrl: "https://github.com/aljones1816/GHCNV4_Analysis/",
     liveUrl: "https://github.com/aljones1816/GHCNV4_Analysis/",
-    techStack: ["Python"],
+    techStack: ["Python", "Flask", "HTML5", "CHART.js"],
   },
   {
     id: 5,
