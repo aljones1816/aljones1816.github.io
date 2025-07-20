@@ -505,6 +505,8 @@ body::before {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
+  max-height: 250px;
+  overflow-y: auto;
 }
 
 .commit-item {
@@ -674,6 +676,7 @@ body::before {
   transition: all var(--transition-medium);
   position: relative;
   overflow: hidden;
+  min-height: fit-content;
 }
 
 .timeline-card::before {
@@ -885,32 +888,43 @@ body::before {
 /* Responsive design */
 @media (max-width: 768px) {
   .timeline-line {
-    left: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
   }
   
   .timeline-line::before {
-    left: 0;
-    transform: none;
+    left: 50%;
+    transform: translateX(-50%);
   }
   
   .timeline-item {
-    flex-direction: row !important;
-    margin-left: var(--space-xl);
+    flex-direction: column !important;
+    margin-left: 0;
+    margin-bottom: var(--space-2xl);
+    align-items: center;
+    position: relative;
   }
   
   .timeline-item:nth-child(even) {
-    flex-direction: row !important;
+    flex-direction: column !important;
   }
   
   .timeline-content {
-    width: calc(100% - var(--space-xl));
-    margin-left: var(--space-lg) !important;
+    width: calc(100% - var(--space-md));
+    margin-left: 0 !important;
     margin-right: 0 !important;
+    position: relative;
+    z-index: 10;
+    margin-top: 0;
   }
   
   .timeline-node {
-    left: 0;
-    transform: none;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    z-index: 15;
   }
   
   .intro-card {
@@ -952,8 +966,14 @@ body::before {
     gap: var(--space-sm);
   }
   
+  .stats-grid {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  
   .stat-item {
     gap: var(--space-xs);
+    flex: none;
   }
   
   .commit-modal {
@@ -963,16 +983,44 @@ body::before {
     transform: translate(-50%, -50%);
     width: 90vw;
     max-width: 400px;
-    max-height: 70vh;
+    min-height: 300px;
+    max-height: 80vh;
     margin-top: 0;
+    padding: var(--space-lg);
   }
   
   .app {
     padding: var(--space-lg) var(--space-md);
   }
+  
+  /* Ensure timeline cards have proper background to hide timeline */
+  .timeline-card {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Ensure expanded content maintains proper collapsed/expanded states */
+  .expanded-content {
+    overflow: hidden;
+  }
+  
+  .timeline-card.expanded .expanded-content {
+    max-height: none;
+    overflow: visible;
+  }
 }
 
 @media (max-width: 480px) {
+  .app {
+    padding: var(--space-md) var(--space-sm);
+  }
+  
+  .timeline-content {
+    width: calc(100% - var(--space-sm));
+  }
+  
   .card-header {
     flex-direction: column;
     align-items: flex-start;
@@ -983,12 +1031,48 @@ body::before {
     margin-right: 0;
   }
   
+  .timeline-card {
+    padding: var(--space-md);
+    min-height: auto;
+    background: var(--color-bg-secondary);
+  }
+  
   .card-technologies {
     gap: var(--space-xs);
+    margin: var(--space-md) 0;
   }
   
   .tech-badge {
     font-size: 0.8rem;
     padding: 4px 8px;
+  }
+  
+  .timeline-card.expanded .expanded-content {
+    padding-top: var(--space-md);
+    margin-top: var(--space-md);
+  }
+  
+  .card-image {
+    margin: var(--space-md) 0;
+  }
+  
+  .stats-grid {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  
+  .stat-item {
+    flex: none;
+    padding: var(--space-sm);
+  }
+  
+  .commit-modal {
+    width: 95vw;
+    min-height: 250px;
+    padding: var(--space-md);
+  }
+  
+  .commit-list {
+    max-height: 200px;
   }
 }

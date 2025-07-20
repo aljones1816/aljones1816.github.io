@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import "../styles/App.css";
 import {
   IconExternalLink,
@@ -31,7 +31,7 @@ function StatsCard() {
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [totalCommits, setTotalCommits] = useState(0);
 
-  const formatDate = (dateString: string): string => {
+  const formatDate = useCallback((dateString: string): string => {
     const date = new Date(dateString);
     const now = new Date();
     const diffInMinutes = Math.floor(
@@ -47,9 +47,9 @@ function StatsCard() {
       const days = Math.floor(diffInMinutes / 1440);
       return `${days} day${days > 1 ? "s" : ""} ago`;
     }
-  };
+  }, []);
 
-  const fetchGitHubData = async (): Promise<{
+  const fetchGitHubData = useCallback(async (): Promise<{
     commits: FormattedCommit[];
     totalCount: number;
   }> => {
@@ -200,7 +200,7 @@ function StatsCard() {
         totalCount: 350,
       };
     }
-  };
+  }, [formatDate]);
 
   // Detect touch device
   useEffect(() => {
@@ -238,7 +238,7 @@ function StatsCard() {
     };
 
     loadData();
-  }, []);
+  }, [fetchGitHubData]);
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -331,45 +331,45 @@ function StatsCard() {
               <div className="stat-value">{stat.value}</div>
               <div className="stat-label">{stat.label}</div>
             </div>
-
-            {stat.hasModal && (showCommits || isMobileModalOpen) && (
-              <div
-                ref={modalRef}
-                className="commit-modal"
-                onMouseEnter={handleModalMouseEnter}
-                onMouseLeave={handleModalMouseLeave}
-              >
-                <div className="commit-modal-header">
-                  <h4>Recent Commits</h4>
-                  <span className="commit-count">
-                    {loading ? "Loading..." : `${commits.length} shown`}
-                  </span>
-                </div>
-                <div className="commit-list">
-                  {loading ? (
-                    <div className="commit-loading">
-                      Fetching latest commits...
-                    </div>
-                  ) : (
-                    commits.map((commit, commitIndex) => (
-                      <div key={commitIndex} className="commit-item">
-                        <div className="commit-hash">#{commit.hash}</div>
-                        <div className="commit-content">
-                          <div className="commit-message">{commit.message}</div>
-                          <div className="commit-meta">
-                            <span className="commit-repo">{commit.repo}</span>
-                            <span className="commit-date">{commit.date}</span>
-                          </div>
-                        </div>
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
-            )}
           </div>
         ))}
       </div>
+      
+      {(showCommits || isMobileModalOpen) && (
+        <div
+          ref={modalRef}
+          className="commit-modal"
+          onMouseEnter={handleModalMouseEnter}
+          onMouseLeave={handleModalMouseLeave}
+        >
+          <div className="commit-modal-header">
+            <h4>Recent Commits</h4>
+            <span className="commit-count">
+              {loading ? "Loading..." : `${commits.length} shown`}
+            </span>
+          </div>
+          <div className="commit-list">
+            {loading ? (
+              <div className="commit-loading">
+                Fetching latest commits...
+              </div>
+            ) : (
+              commits.map((commit, commitIndex) => (
+                <div key={commitIndex} className="commit-item">
+                  <div className="commit-hash">#{commit.hash}</div>
+                  <div className="commit-content">
+                    <div className="commit-message">{commit.message}</div>
+                    <div className="commit-meta">
+                      <span className="commit-repo">{commit.repo}</span>
+                      <span className="commit-date">{commit.date}</span>
+                    </div>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
