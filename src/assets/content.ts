@@ -96,11 +96,6 @@ export const experiences: Experience[] = [
     type: "career",
     technologies: [
       {
-        name: "Databricks",
-        icon: "https://cdn.worldvectorlogo.com/logos/databricks-1.svg",
-        color: "#FF3621",
-      },
-      {
         name: "Pandas",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
         color: "#150458",
