@@ -117,7 +117,7 @@ export const experiences: Experience[] = [
       },
     ],
     link: "https://viewer.dnv.com/macustomerprofile/entity/1444/report/2078",
-    location: "Portland, Maine",
+    location: "DNV | Portland, Maine",
   },
   {
     id: "2021-warehouse",
@@ -166,7 +166,7 @@ export const experiences: Experience[] = [
         color: "#4169E1",
       },
     ],
-    location: "Westbrook, Maine",
+    location: "IDEXX | Westbrook, Maine",
   },
   {
     id: "2021-javascript",
@@ -266,7 +266,7 @@ export const experiences: Experience[] = [
     description:
       "Now building complete web applications from backend to frontend",
     expandedContent:
-      "Today I leverage my data engineering background to build comprehensive web applications with robust backend systems and engaging user interfaces. I focus on creating scalable, maintainable applications that solve real problems. I am open to new opportunities and would love to talk to you about what we can build next",
+      "Today I leverage my data engineering background to build comprehensive web applications with robust backend systems and engaging user interfaces. I focus on creating scalable, maintainable applications that solve real problems. I am open to new opportunities and would love to talk to you about what we can build next.",
     type: "career",
     technologies: [
       {
