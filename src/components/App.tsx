@@ -49,154 +49,37 @@ function StatsCard() {
     }
   }, []);
 
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "";
   const fetchGitHubData = useCallback(async (): Promise<{
     commits: FormattedCommit[];
     totalCount: number;
   }> => {
-    const token = import.meta.env.VITE_GITHUB_TOKEN;
-    const username = import.meta.env.VITE_GITHUB_USERNAME || "aljones1816";
-
-    if (!token) {
-      setTotalCommits(350); // Fallback estimate for yearly commits
-      return {
-        commits: [
-          {
-            hash: "a7b3c2d",
-            message: "feat: implement user authentication system",
-            date: "2 hours ago",
-            repo: "sojourness",
-          },
-          {
-            hash: "f4e5d6a",
-            message: "fix: resolve timeline rendering bug",
-            date: "1 day ago",
-            repo: "portfolio",
-          },
-          {
-            hash: "2c8b9e1",
-            message: "refactor: optimize database queries",
-            date: "3 days ago",
-            repo: "data-platform",
-          },
-          {
-            hash: "9d5a1f2",
-            message: "feat: add dark mode toggle",
-            date: "1 week ago",
-            repo: "react-components",
-          },
-          {
-            hash: "6e2f7b8",
-            message: "docs: update API documentation",
-            date: "2 weeks ago",
-            repo: "api-server",
-          },
-        ],
-        totalCount: 350,
-      };
-    }
-
     try {
-      // First, get the user's repositories
-      const reposUrl = `https://api.github.com/users/${username}/repos`;
+      console.log(`${API_BASE}/api/github-events`);
+      const res = await fetch(`${API_BASE}/api/github-events`);
+      console.log("Raw body:", res);
+      const json = await res.json();
+      console.log("GitHub API response:", json);
 
-      const reposResponse = await fetch(reposUrl, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          Accept: "application/vnd.github.v3+json",
-          "X-GitHub-Api-Version": "2022-11-28",
-        },
-      });
+      if (!res.ok) throw new Error(json.error || "Unknown error");
 
-      if (!reposResponse.ok) {
-        throw new Error(
-          `Failed to fetch repositories: ${reposResponse.status}`,
-        );
-      }
+      const formattedCommits = json.commits.map((c: any) => ({
+        ...c,
+        date: formatDate(c.date),
+      }));
 
-      const repos = await reposResponse.json();
-
-      // Get commits from this year
-      const startOfYear = new Date(new Date().getFullYear(), 0, 1);
-      const since = startOfYear.toISOString();
-
-      const recentCommits: FormattedCommit[] = [];
-      let yearlyCommitCount = 0;
-      const reposToCheck = repos.slice(0, 15); // Check more repos for yearly count
-
-      for (const repo of reposToCheck) {
-        try {
-          const commitsUrl = `https://api.github.com/repos/${username}/${repo.name}/commits`;
-
-          // Get commits from this year
-          const commitsResponse = await fetch(
-            commitsUrl + `?since=${since}&per_page=100`,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-                Accept: "application/vnd.github.v3+json",
-                "X-GitHub-Api-Version": "2022-11-28",
-              },
-            },
-          );
-
-          if (commitsResponse.ok) {
-            const commits = await commitsResponse.json();
-            yearlyCommitCount += commits.length;
-
-            // Add recent commits to display list (only the most recent ones)
-            for (const commit of commits.slice(0, 2)) {
-              // Take up to 2 commits per repo
-              if (recentCommits.length < 5) {
-                recentCommits.push({
-                  hash: commit.sha.slice(0, 7),
-                  message: commit.commit.message.split("\n")[0],
-                  date: formatDate(commit.commit.author.date),
-                  repo: repo.name,
-                });
-              }
-            }
-          }
-        } catch (repoError) {
-          // Skip repos that can't be accessed
-        }
-
-        if (recentCommits.length >= 5) break;
-      }
-
-      // Sort by date (most recent first)
-      recentCommits.sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-      );
+      setTotalCommits(json.totalCount);
 
       return {
-        commits: recentCommits.slice(0, 5),
-        totalCount: yearlyCommitCount,
+        commits: formattedCommits,
+        totalCount: json.totalCount,
       };
     } catch (error) {
-      console.error("Error fetching GitHub data:", error);
-      // Fallback to mock data
+      console.error("Error fetching GitHub summary:", error);
+
       setTotalCommits(350);
       return {
-        commits: [
-          {
-            hash: "a7b3c2d",
-            message: "feat: implement user authentication system",
-            date: "2 hours ago",
-            repo: "sojourness",
-          },
-          {
-            hash: "f4e5d6a",
-            message: "fix: resolve timeline rendering bug",
-            date: "1 day ago",
-            repo: "portfolio",
-          },
-          {
-            hash: "2c8b9e1",
-            message: "refactor: optimize database queries",
-            date: "3 days ago",
-            repo: "data-platform",
-          },
-        ],
+        commits: [],
         totalCount: 350,
       };
     }
@@ -334,7 +217,7 @@ function StatsCard() {
           </div>
         ))}
       </div>
-      
+
       {(showCommits || isMobileModalOpen) && (
         <div
           ref={modalRef}
@@ -350,9 +233,7 @@ function StatsCard() {
           </div>
           <div className="commit-list">
             {loading ? (
-              <div className="commit-loading">
-                Fetching latest commits...
-              </div>
+              <div className="commit-loading">Fetching latest commits...</div>
             ) : (
               commits.map((commit, commitIndex) => (
                 <div key={commitIndex} className="commit-item">
