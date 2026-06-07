@@ -18,7 +18,7 @@ function ArticleCard({ meta }: { meta: ReturnType<typeof publishedNotes>[number]
           </div>
           <h3 className="article-card-title">{meta.title}</h3>
           <p className="article-card-desc">{meta.description}</p>
-          <span className="article-card-read">open <IconArrowRight size={12} /></span>
+          <span className="article-card-read">Read more <IconArrowRight size={12} /></span>
         </div>
       </div>
     </Link>
@@ -31,47 +31,37 @@ export default function HomePage() {
   return (
     <div className="page home-page">
 
-      {/* Hero */}
       <section className="hero-section">
         <div className="hero-inner">
-          <div className="hero-terminal">
-            <div className="hero-terminal-bar">alan@terminal:~$</div>
-            <div className="hero-body">
-              <div className="hero-profile">
-                <img src={profilePic} alt={personalInfo.name} className="hero-photo" />
-                <div className="hero-text">
-                  <div className="hero-meta">&gt; whoami</div>
-                  <h1 className="hero-name">
-                    {personalInfo.name}
-                    <span className="hero-cursor" aria-hidden="true" />
-                  </h1>
-                  <h2 className="hero-title">{personalInfo.title}</h2>
-                  <p className="hero-copy">{personalInfo.heroCopy}</p>
-                </div>
-              </div>
-              <div className="hero-ctas">
-                <a href={`mailto:${personalInfo.email}`} className="cta-btn cta-email">
-                  <IconMail size={14} /><span>Email</span>
-                </a>
-                <a href={personalInfo.github} className="cta-btn cta-github" target="_blank" rel="noopener noreferrer">
-                  <IconBrandGithub size={14} /><span>GitHub</span>
-                </a>
-                <a href={personalInfo.linkedin} className="cta-btn cta-linkedin" target="_blank" rel="noopener noreferrer">
-                  <IconBrandLinkedin size={14} /><span>LinkedIn</span>
-                </a>
-              </div>
+          <img src={profilePic} alt={personalInfo.name} className="hero-photo" />
+          <div className="hero-text">
+            <p className="hero-meta">{personalInfo.location}</p>
+            <h1 className="hero-name">
+              {personalInfo.name}
+              <span className="hero-cursor" aria-hidden="true" />
+            </h1>
+            <p className="hero-title">{personalInfo.title}</p>
+            <p className="hero-copy">{personalInfo.heroCopy}</p>
+            <div className="hero-ctas">
+              <a href={`mailto:${personalInfo.email}`} className="cta-btn cta-email">
+                <IconMail size={14} /><span>Email me</span>
+              </a>
+              <a href={personalInfo.github} className="cta-btn cta-github" target="_blank" rel="noopener noreferrer">
+                <IconBrandGithub size={14} /><span>GitHub</span>
+              </a>
+              <a href={personalInfo.linkedin} className="cta-btn cta-linkedin" target="_blank" rel="noopener noreferrer">
+                <IconBrandLinkedin size={14} /><span>LinkedIn</span>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured notes */}
-
       <section className="home-section">
         <div className="section-inner">
           <div className="section-header-row">
-            <h2 className="section-label">► LATEST_NOTES</h2>
-            <Link to="/notes" className="section-more">VIEW ALL <IconArrowRight size={12} /></Link>
+            <h2 className="section-label">Latest notes</h2>
+            <Link to="/notes" className="section-more">View all <IconArrowRight size={12} /></Link>
           </div>
           <p className="section-subtext">Short essays on data platforms, architecture, operations, and AI-assisted engineering.</p>
           <div className="article-cards-grid">
@@ -80,11 +70,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Impact strip */}
       <section className="home-section metrics-section">
         <div className="section-inner">
-          <h2 className="section-label">► BY_THE_NUMBERS</h2>
-          <div className="metrics-strip">
+          <h2 className="section-label">By the numbers</h2>
+          <div className="metrics-strip" style={{ marginTop: "1rem" }}>
             {impactMetrics.map(m => (
               <div key={m.label} className="metric-tile">
                 <div className="metric-value">{m.value}</div>
@@ -93,17 +82,16 @@ export default function HomePage() {
             ))}
           </div>
           <Link to="/work" className="section-more" style={{ marginTop: "1.5rem", display: "inline-flex" }}>
-            VIEW CASE STUDIES <IconArrowRight size={12} />
+            View case studies <IconArrowRight size={12} />
           </Link>
         </div>
       </section>
 
-      {/* Principles teaser */}
       <section className="home-section">
         <div className="section-inner">
           <div className="section-header-row">
-            <h2 className="section-label">► ENGINEERING_PRINCIPLES</h2>
-            <Link to="/principles" className="section-more">VIEW ALL <IconArrowRight size={12} /></Link>
+            <h2 className="section-label">Engineering principles</h2>
+            <Link to="/principles" className="section-more">View all <IconArrowRight size={12} /></Link>
           </div>
           <div className="principles-teaser">
             {principles.slice(0, 3).map(p => (
