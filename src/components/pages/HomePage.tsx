@@ -5,25 +5,10 @@ import { publishedNotes } from "../../content/registry";
 import profilePic from "../../assets/me.jpeg";
 import "../../styles/home.css";
 
-function WinTitlebar({ title }: { title: string }) {
-  return (
-    <div className="win-titlebar" aria-hidden="true">
-      <span className="win-titlebar-icon">▣</span>
-      <span className="win-titlebar-title">{title}</span>
-      <div className="win-titlebar-btns">
-        <span className="win-btn">_</span>
-        <span className="win-btn">□</span>
-        <span className="win-btn">×</span>
-      </div>
-    </div>
-  );
-}
-
 function ArticleCard({ meta }: { meta: ReturnType<typeof publishedNotes>[number]["meta"] }) {
   return (
     <Link to={`/notes/${meta.slug}`} className="article-card">
       <div className="article-card-inner">
-        <WinTitlebar title={meta.slug.toUpperCase() + ".TXT"} />
         <div className="article-card-body">
           <div className="article-card-tags">
             {meta.tags.slice(0, 2).map(t => (
@@ -46,16 +31,16 @@ export default function HomePage() {
   return (
     <div className="page home-page">
 
-      {/* Hero window */}
+      {/* Hero */}
       <section className="hero-section">
         <div className="hero-inner">
-          <div className="win-window hero-window">
-            <WinTitlebar title="ALAN_JONES.EXE" />
-            <div className="win-body hero-body">
+          <div className="hero-terminal">
+            <div className="hero-terminal-bar">alan@terminal:~$</div>
+            <div className="hero-body">
               <div className="hero-profile">
                 <img src={profilePic} alt={personalInfo.name} className="hero-photo" />
                 <div className="hero-text">
-                  <div className="hero-meta">C:\USERS\ALAN&gt; whoami</div>
+                  <div className="hero-meta">&gt; whoami</div>
                   <h1 className="hero-name">
                     {personalInfo.name}
                     <span className="hero-cursor" aria-hidden="true" />
@@ -81,6 +66,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured notes */}
+
       <section className="home-section">
         <div className="section-inner">
           <div className="section-header-row">

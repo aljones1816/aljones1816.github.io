@@ -4,45 +4,33 @@
 .tag-filter {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.3rem;
+  gap: 0.35rem;
   margin-bottom: 1.75rem;
 }
 
 .tag-btn {
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   color: var(--text-subtle);
-  background: var(--surface-2);
-  border: 2px solid;
-  border-top-color:   var(--bevel-light);
-  border-left-color:  var(--bevel-light);
-  border-bottom-color: var(--bevel-dark);
-  border-right-color: var(--bevel-dark);
+  background: transparent;
+  border: 1px solid var(--border);
   padding: 0.2rem 0.65rem;
   cursor: pointer;
   letter-spacing: 0.05em;
-  transition: all var(--transition);
+  transition: color var(--transition), border-color var(--transition);
 }
 .tag-btn:hover {
-  color: var(--text);
-  border-top-color:   var(--bevel-dark);
-  border-left-color:  var(--bevel-dark);
-  border-bottom-color: var(--bevel-light);
-  border-right-color: var(--bevel-light);
+  color: var(--text-muted);
+  border-color: var(--border-bright);
 }
 .tag-btn.active {
-  color: white;
-  background: var(--win-blue);
-  border-color: var(--win-blue);
+  color: var(--phosphor);
+  border-color: var(--phosphor-dim);
 }
 
 /* ─── Notes list ─── */
 .notes-list {
-  border: 2px solid;
-  border-top-color:   var(--bevel-dark);
-  border-left-color:  var(--bevel-dark);
-  border-bottom-color: var(--bevel-light);
-  border-right-color: var(--bevel-light);
+  border: 1px solid var(--border);
   overflow: hidden;
 }
 
@@ -56,11 +44,12 @@
   background: var(--surface);
   text-decoration: none;
   transition: background var(--transition);
+  border-left: 3px solid transparent;
 }
 .note-row:last-child { border-bottom: none; }
-.note-row:hover { background: var(--surface-2); }
+.note-row:hover { background: var(--surface-2); border-left-color: var(--phosphor-dim); }
 .note-row:hover .note-title { color: var(--amber); }
-.note-row:hover .note-arrow { color: var(--cyan); }
+.note-row:hover .note-arrow { color: var(--phosphor-dim); }
 
 .note-row-meta {
   display: flex;
@@ -72,16 +61,14 @@
 .note-date,
 .note-reading-time {
   font-family: var(--mono);
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   color: var(--text-subtle);
   letter-spacing: 0.04em;
 }
 
-.note-row-content { }
-
 .note-title {
-  font-family: var(--sans);
-  font-size: 0.95rem;
+  font-family: var(--mono);
+  font-size: 0.92rem;
   font-weight: bold;
   color: var(--text);
   line-height: 1.3;
@@ -90,7 +77,7 @@
 }
 
 .note-desc {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 0.5rem;
@@ -106,6 +93,6 @@
 }
 
 @media (max-width: 600px) {
-  .note-row { grid-template-columns: 1fr 16px; grid-template-rows: auto auto; }
+  .note-row { grid-template-columns: 1fr 16px; grid-template-rows: auto auto; border-left-width: 2px; }
   .note-row-meta { display: none; }
 }

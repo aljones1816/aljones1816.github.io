@@ -3,51 +3,47 @@
 .case-studies-list {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .case-study-card {
   background: var(--surface);
-  border: 2px solid;
-  border-top-color:   var(--bevel-light);
-  border-left-color:  var(--bevel-light);
-  border-bottom-color: var(--bevel-dark);
-  border-right-color: var(--bevel-dark);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border-bright);
   cursor: pointer;
   transition: border-color var(--transition);
   overflow: hidden;
 }
 
 .case-study-card:hover {
-  border-top-color:   var(--amber-dim);
-  border-left-color:  var(--amber-dim);
+  border-left-color: var(--phosphor-dim);
+  border-color: var(--border-bright);
 }
 
-/* Title bar on each case study */
 .case-study-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  padding: 3px 6px 3px 6px;
-  background: linear-gradient(to right, var(--win-blue), var(--win-blue-2));
+  padding: 0.85rem 1rem;
 }
 
 .case-study-title {
-  font-family: var(--sans);
-  font-size: 0.72rem;
+  font-family: var(--mono);
+  font-size: 0.82rem;
   font-weight: bold;
-  color: white;
+  color: var(--text);
   line-height: 1.3;
   letter-spacing: 0.01em;
 }
+.case-study-card:hover .case-study-title { color: var(--amber); }
 
 .case-study-chevron {
-  color: var(--silver);
+  color: var(--text-subtle);
   flex-shrink: 0;
-  transition: transform 0.2s ease;
-  opacity: 0.8;
+  transition: transform 0.2s ease, color var(--transition);
 }
+.case-study-card:hover .case-study-chevron { color: var(--phosphor-dim); }
 .case-study-card.expanded .case-study-chevron {
   transform: rotate(180deg);
 }
@@ -56,7 +52,7 @@
   font-size: 0.82rem;
   color: var(--text-muted);
   line-height: 1.65;
-  padding: 1rem 1.25rem 0.75rem;
+  padding: 0 1rem 0.75rem 1rem;
 }
 
 .case-study-bullets {
@@ -70,17 +66,16 @@
 
 .case-study-bullets ul {
   list-style: none;
-  padding: 0 1.25rem 1rem;
+  padding: 0.75rem 1rem 1rem;
   border-top: 1px solid var(--border);
-  margin: 0 1.25rem;
-  padding-top: 0.75rem;
+  margin: 0;
 }
 
 .case-study-bullets li {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   color: var(--text-muted);
-  padding: 0.3rem 0 0.3rem 1rem;
+  padding: 0.3rem 0 0.3rem 1.2rem;
   position: relative;
   border-bottom: 1px solid var(--border);
   line-height: 1.55;
@@ -90,6 +85,6 @@
   content: ">";
   position: absolute;
   left: 0;
-  color: var(--green);
-  font-size: 0.75rem;
+  color: var(--phosphor-dim);
+  font-size: 0.72rem;
 }

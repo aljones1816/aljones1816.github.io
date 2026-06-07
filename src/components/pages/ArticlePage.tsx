@@ -33,15 +33,6 @@ export default function ArticlePage() {
         </Link>
 
         <header className="article-header">
-          <div className="article-header-titlebar" aria-hidden="true">
-            <span className="article-header-titlebar-icon">▣</span>
-            <span className="article-header-titlebar-name">{meta.slug.toUpperCase()}.TXT</span>
-            <div className="article-header-titlebar-btns">
-              <span className="win-btn">_</span>
-              <span className="win-btn">□</span>
-              <span className="win-btn">×</span>
-            </div>
-          </div>
           <div className="article-header-body">
             <div className="article-header-meta">
               <span className="article-date">{meta.date}</span>

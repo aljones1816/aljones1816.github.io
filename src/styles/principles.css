@@ -1,33 +1,32 @@
 .principles-page { background: transparent; }
 
 .principles-list {
-  border: 2px solid;
-  border-top-color:   var(--bevel-dark);
-  border-left-color:  var(--bevel-dark);
-  border-bottom-color: var(--bevel-light);
-  border-right-color: var(--bevel-light);
+  border: 1px solid var(--border);
   overflow: hidden;
 }
 
-/* Alternating row colors — data grid feel */
 .principle-card {
   display: flex;
   gap: 1.25rem;
   align-items: flex-start;
   padding: 1.4rem 1.25rem;
   border-bottom: 1px solid var(--border);
-  transition: background var(--transition);
+  border-left: 3px solid transparent;
+  transition: background var(--transition), border-color var(--transition);
 }
 .principle-card:nth-child(odd)  { background: var(--surface); }
 .principle-card:nth-child(even) { background: var(--surface-2); }
 .principle-card:last-child { border-bottom: none; }
-.principle-card:hover { background: var(--surface-3); }
+.principle-card:hover {
+  background: var(--surface-3);
+  border-left-color: var(--phosphor-dim);
+}
 
 .principle-num {
   font-family: var(--mono);
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  color: var(--cyan);
+  color: var(--phosphor-dim);
   opacity: 0.4;
   flex-shrink: 0;
   min-width: 2rem;
@@ -38,7 +37,7 @@
 .principle-content { flex: 1; }
 
 .principle-title {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: bold;
   color: var(--text);
   display: block;
@@ -46,7 +45,7 @@
 }
 
 .principle-body {
-  font-size: 0.83rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
   line-height: 1.7;
   margin-bottom: 0.5rem;
@@ -57,17 +56,12 @@
   align-items: center;
   gap: 0.25rem;
   font-family: var(--mono);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   color: var(--text-subtle);
   text-decoration: none;
   letter-spacing: 0.05em;
-  padding: 0.15rem 0.5rem;
-  border: 1px solid;
-  border-top-color:   var(--bevel-dark);
-  border-left-color:  var(--bevel-dark);
-  border-bottom-color: var(--bevel-light);
-  border-right-color: var(--bevel-light);
-  background: var(--surface-3);
-  transition: color var(--transition);
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--border);
+  transition: color var(--transition), border-color var(--transition);
 }
-.principle-link:hover { color: var(--cyan); }
+.principle-link:hover { color: var(--phosphor); border-color: var(--border-bright); }
