@@ -1,299 +1,171 @@
-import sojournessThumb from "./sojourness-main.png";
-
-export interface Experience {
-  id: string;
-  date: string; // YYYY or YYYY-MM format for sorting
-  year: string; // Display year
-  title: string;
-  subtitle: string;
-  description: string;
-  expandedContent: string;
-  type: "education" | "career" | "project" | "milestone";
-  image?: string;
-  technologies?: Technology[];
-  link?: string;
-  location?: string;
-}
-
-export interface Technology {
-  name: string;
-  icon: string;
-  color?: string;
-}
-
 export const personalInfo = {
   name: "Alan Jones",
   location: "Portland, Maine",
-  tagline: "Building data-driven experiences for the modern web",
-  interests: [
-    "✈️ Travel",
-    "🥾 Hiking & Camping",
-    "🏋️ Weightlifting",
-    "🥒 Pickleball",
-    "👨‍🍳 Cooking",
-    "🎮 Video Games",
-    "🌱 Climate Change Advocacy",
-  ],
-  bio: "Hi, I'm Alan. I live in Portland, Maine with my spouse and our little dog, Copper. When I'm not coding and creating bugs for myself to fix, I spend my free time traveling with my partner to see as much of the world as we can, hiking through Maine's beautiful wilderness, experimenting with new recipes in the kitchen, finding creative ways to injure myself on unfamiliar gym equipment, and getting bodied on the kitchen line at the pickleball court. I'm a passionate advocate for environmental stewardship and deeply believe that climate change is humanity's most critical challenge. I want to use technology to make the world better.",
+  title: "Data Platform Engineer & Technical Lead",
+  subheadline:
+    "I design and modernize enterprise data platforms, helping teams turn business needs into reliable, scalable systems.",
+  supportingText:
+    "My work spans cloud-native data infrastructure, distributed processing, orchestration, stakeholder discovery, and engineering standards for business-critical data platforms.",
+  bio: "I'm a data platform engineer based in Portland, Maine. My background combines software engineering, data systems, and scientific computing, with an M.S. in Earth Science (computational data focus) from UC Santa Barbara and a B.S. in Geology from the University of New Hampshire. Most of my recent work has focused on enterprise data platform modernization: replacing fragile legacy systems, improving reliability, defining technical roadmaps, and helping teams build data systems that are easier to operate and evolve. I care about pragmatic engineering: simple architecture, clear ownership, strong operational visibility, and tools that help teams move faster without losing discipline. Outside of work, I build independent software projects, explore practical AI-assisted development workflows, and spend time in Maine with my family.",
+  email: "me@alanjones.dev",
+  github: "https://github.com/aljones1816",
+  linkedin: "https://www.linkedin.com/in/almjones/",
 };
 
-export const experiences: Experience[] = [
+export interface WhatIDoItem {
+  title: string;
+  description: string;
+  bullets: string[];
+}
+
+export const whatIDo: WhatIDoItem[] = [
   {
-    id: "2015-graduate",
-    date: "2015",
-    year: "2015",
-    title: "Graduate Student",
-    subtitle: "Paleoclimatology Research",
+    title: "Platform Architecture",
     description:
-      "Started my journey into software with R programming for climate data analysis",
-    expandedContent:
-      "As a graduate student studying paleoclimatology, I began tinkering with R programs used to unravel the timing of past great climate changes recorded in ocean sediment cores. This was my first real exposure to programming and data analysis, where I discovered my love for solving complex problems with code.",
-    type: "education",
-    technologies: [
-      {
-        name: "R",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg",
-        color: "#276DC3",
-      },
-    ],
-    link: "https://www.sciencedirect.com/science/article/pii/S0277379122001901",
-    location: "University Of California Santa Barbara",
-  },
-  {
-    id: "2017-python",
-    date: "2017",
-    year: "2017",
-    title: "Python Discovery",
-    subtitle: "Expanding Technical Skills",
-    description:
-      "Transitioned from R to Python for more robust data processing and analysis",
-    expandedContent:
-      "Discovered Python and its powerful ecosystem for data science. Started using pandas, numpy, and matplotlib for more complex data analysis tasks. This marked the beginning of my deeper dive into programming beyond just research scripts.",
-    type: "milestone",
-    technologies: [
-      {
-        name: "Python",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-        color: "#3776AB",
-      },
-      {
-        name: "Pandas",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
-        color: "#150458",
-      },
+      "Designing enterprise data platforms, distributed processing systems, and cloud-native runtime architectures for reliable data movement and analytics.",
+    bullets: [
+      "Data ingestion and orchestration",
+      "Snowflake, Airflow, AWS, Python",
+      "Execution tracking, recovery, and auditability",
     ],
   },
   {
-    id: "2019-data-platform",
-    date: "2019",
-    year: "2019",
-    title: "Energy Utility Data Platform",
-    subtitle: "First Professional Development",
+    title: "Technical Leadership",
     description:
-      "Developed public data-access platform for Massachusetts energy efficiency programs",
-    expandedContent:
-      "I collaborated with Massachusetts energy utilities to develop a data platform that drives their energy efficiency programs. This was my first major professional software project, involving large-scale data processing, ETL pipelines, and building systems that real businesses depend on.",
-    type: "career",
-    technologies: [
-      {
-        name: "Pandas",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
-        color: "#150458",
-      },
-      {
-        name: "Python",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-        color: "#3776AB",
-      },
-      {
-        name: "SQL",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-        color: "#4169E1",
-      },
-    ],
-    link: "https://viewer.dnv.com/macustomerprofile/entity/1444/report/2078",
-    location: "DNV | Portland, Maine",
-  },
-  {
-    id: "2021-warehouse",
-    date: "2021",
-    year: "2021",
-    title: "Data Warehouse Migration",
-    subtitle: "Large-Scale System Architecture",
-    description: "Participated in large-scale data warehouse migration project",
-    expandedContent:
-      "Participated in a large-scale data warehouse migration, learning about system architecture, database optimization, and the challenges of moving massive amounts of data while maintaining business continuity. This experience taught me about scalable system design.",
-    type: "career",
-    technologies: [
-      {
-        name: "Snowflake",
-        icon: "https://logos-world.net/wp-content/uploads/2022/11/Snowflake-Symbol.png",
-        color: "#29B5E8",
-      },
-      {
-        name: "Apache Airflow",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg",
-        color: "#017CEE",
-      },
-      {
-        name: "dbt",
-        icon: "https://seeklogo.com/images/D/dbt-logo-500AB0BAA7-seeklogo.com.png",
-        color: "#FF694B",
-      },
-      {
-        name: "Docker",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-        color: "#2496ED",
-      },
-      {
-        name: "AWS",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg",
-        color: "#FF9900",
-      },
-      {
-        name: "Python",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-        color: "#3776AB",
-      },
-      {
-        name: "SQL",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-        color: "#4169E1",
-      },
-    ],
-    location: "IDEXX | Westbrook, Maine",
-  },
-  {
-    id: "2021-javascript",
-    date: "2021",
-    year: "2021",
-    title: "Frontend Discovery",
-    subtitle: "Learning Web Development",
-    description:
-      "Started learning JavaScript and web development to build user interfaces",
-    expandedContent:
-      "Began exploring frontend development with JavaScript, HTML, and CSS. Realized I wanted to build complete applications, not just backend systems. Started with vanilla JavaScript and quickly moved to understanding modern web development patterns.",
-    type: "milestone",
-    technologies: [
-      {
-        name: "JavaScript",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-        color: "#F7DF1E",
-      },
-      {
-        name: "HTML5",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-        color: "#E34F26",
-      },
-      {
-        name: "CSS3",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-        color: "#1572B6",
-      },
+      "Working with business, product, architecture, and engineering stakeholders to define technical direction and turn organizational priorities into engineering roadmaps.",
+    bullets: [
+      "Architecture reviews",
+      "Platform roadmaps",
+      "Cross-team standards",
     ],
   },
   {
-    id: "2022-react",
-    date: "2022",
-    year: "2022",
-    title: "React & Modern Frontend",
-    subtitle: "Component-Based Development",
+    title: "Modernization",
     description:
-      "Dove deep into React and modern frontend development patterns",
-    expandedContent:
-      "Immersed myself in React and the modern frontend ecosystem. Learned about component-based architecture, state management, and building interactive user interfaces. Started understanding how to create engaging user experiences.",
-    type: "milestone",
-    technologies: [
-      {
-        name: "React",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-        color: "#61DAFB",
-      },
-      {
-        name: "TypeScript",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-        color: "#3178C6",
-      },
+      "Replacing fragile legacy systems with maintainable, observable, containerized services that are safer to operate and easier to scale.",
+    bullets: [
+      "ECS/Fargate runtime services",
+      "Legacy ETL modernization",
+      "Safe retries and operational recovery",
     ],
   },
   {
-    id: "2025-sojourness",
-    date: "2024",
-    year: "2024-2025",
-    title: "Sojourness",
-    subtitle: "Full Stack E-commerce Platform",
+    title: "AI-Assisted Engineering",
     description:
-      "Built a complete, bespoke travel booking platform with Next.js and Payload CMS.",
-    expandedContent:
-      "Sojourness is a travel organization for women that provides unique international and local women-led group travel experiences. Built with modern web technologies, this comprehensive booking platform features a headless CMS architecture for optimal performance and scalability. The platform includes user authentication, search and filtering, custom booking management, and payment processing. This freelance project was my first time deploying and maintaining a professional fullstack application that is actively used to drive vital business operations.",
-    type: "project",
-    image: sojournessThumb,
-    technologies: [
-      {
-        name: "Next.js",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-        color: "#000000",
-      },
-      {
-        name: "Payload CMS",
-        icon: "https://avatars.githubusercontent.com/u/62968818?s=200&v=4",
-        color: "#000000",
-      },
-      {
-        name: "React",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-        color: "#61DAFB",
-      },
-      {
-        name: "TypeScript",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-        color: "#3178C6",
-      },
-    ],
-    link: "https://www.sojourness.com",
-  },
-  {
-    id: "2025-fullstack",
-    date: "2025",
-    year: "2025",
-    title: "Full Stack Developer",
-    subtitle: "Present Day",
-    description:
-      "Now building complete web applications from backend to frontend",
-    expandedContent:
-      "Today I leverage my data engineering background to build comprehensive web applications with robust backend systems and engaging user interfaces. I focus on creating scalable, maintainable applications that solve real problems. I am open to new opportunities and would love to talk to you about what we can build next.",
-    type: "career",
-    technologies: [
-      {
-        name: "React",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-        color: "#61DAFB",
-      },
-      {
-        name: "Next.js",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-        color: "#000000",
-      },
-      {
-        name: "Node.js",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-        color: "#339933",
-      },
-      {
-        name: "Python",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-        color: "#3776AB",
-      },
-      {
-        name: "PostgreSQL",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-        color: "#4169E1",
-      },
+      "Establishing safe AI-assisted engineering workflows that improve development speed, code review, documentation, and testing without sacrificing engineering discipline.",
+    bullets: [
+      "AI-assisted code review and testing",
+      "Guardrails and access controls",
+      "Team enablement and workflow design",
     ],
   },
 ];
 
-// Sort experiences by date
-experiences.sort((a, b) => {
-  return parseInt(a.date) - parseInt(b.date);
-});
+export interface CaseStudy {
+  id: string;
+  title: string;
+  description: string;
+  bullets: string[];
+}
+
+export const caseStudies: CaseStudy[] = [
+  {
+    id: "platform-modernization",
+    title: "Enterprise Data Platform Modernization",
+    description:
+      "Technical lead for an enterprise data platform supporting approximately 500 data pipelines and organization-wide reporting, analytics, and operational data products. Defined and led a modernization strategy replacing legacy server-based ETL infrastructure with containerized extraction, ingestion, and processing services on AWS ECS/Fargate.",
+    bullets: [
+      "Migrated 300+ SAP ingestion pipelines to the new runtime architecture",
+      "Reduced on-call incidents from 5–8 per week to less than one on average",
+      "Reduced data load times from hours to minutes through safer parallel execution",
+      "Eliminated manual job recovery by making workloads retry-safe, observable, and idempotent",
+    ],
+  },
+  {
+    id: "roadmap-discovery",
+    title: "Platform Roadmap and Stakeholder Discovery",
+    description:
+      "Worked with business, product, architecture, and engineering stakeholders to refine the multi-year roadmap for an enterprise data platform. Interviewed stakeholders, evaluated current pain points, challenged outdated assumptions, and translated organizational needs into platform priorities that leadership adopted and began implementing.",
+    bullets: [
+      "Interviewed 7 key stakeholders to understand business needs and operational pain points",
+      "Helped align platform investment with long-term data strategy",
+      "Influenced team realignment between platform engineering and business-facing analytics work",
+      "Helped clarify ownership boundaries across platform, modeling, and SAP support teams",
+    ],
+  },
+  {
+    id: "ai-engineering",
+    title: "Safe AI-Assisted Engineering Practices",
+    description:
+      "Established standards and workflows for AI-assisted software development across platform modernization work, including tooling, access controls, review practices, and team enablement. The goal was not to replace engineering judgment, but to make design, testing, migration, review, and documentation work faster and more reliable.",
+    bullets: [
+      "Helped accelerate migration of 300+ pipelines from a months-long roadmap item into a days/weeks execution window",
+      "Introduced AI-assisted PR review, commit recommendations, test generation, and documentation workflows",
+      "Defined safe agent usage patterns, including controlled read-only AWS access for development support",
+      "Led team enablement on how to use AI safely and effectively in engineering workflows",
+    ],
+  },
+  {
+    id: "platform-performance",
+    title: "Platform Performance and Developer Productivity",
+    description:
+      "Designed and delivered foundational platform improvements across data latency, query performance, schema safety, and developer tooling. Work spanned incremental processing patterns, transformation optimization, schema evolution frameworks, and shared engineering libraries adopted across the platform team.",
+    bullets: [
+      "Reduced data latency by 70% through incremental processing patterns that eliminated costly full-table reprocessing",
+      "Improved P95 query latency by 60% and reduced storage costs by approximately 20% on large-scale transformation workloads",
+      "Built schema evolution and compatibility frameworks supporting 200+ analytical models, enabling safer platform changes",
+      "Developed shared platform libraries and tooling adopted across a 12-engineer team, improving consistency and developer productivity",
+    ],
+  },
+  {
+    id: "energy-analytics",
+    title: "Massachusetts Energy Analytics Platform",
+    description:
+      "Designed data models and processing pipelines supporting Massachusetts statewide energy efficiency programs, including reporting and analytics across electric and gas utilities. The platform supported regulatory reporting, public transparency, and program effectiveness analysis.",
+    bullets: [
+      "Modernized legacy SAS workflows to Python and Airflow",
+      "Introduced automated testing, monitoring, and recovery practices",
+      "Reduced pipeline failures by 30%",
+      "Supported analytics for energy usage, program participation, savings, and consumer impact",
+    ],
+  },
+];
+
+export interface SkillGroup {
+  label: string;
+  skills: string[];
+}
+
+export const skillGroups: SkillGroup[] = [
+  {
+    label: "Cloud & Infrastructure",
+    skills: ["AWS", "ECS/Fargate", "S3", "Terraform", "Docker", "GitHub Actions"],
+  },
+  {
+    label: "Data Engineering",
+    skills: ["Snowflake", "Airflow", "dbt", "Python", "SQL", "PostgreSQL", "MySQL"],
+  },
+  {
+    label: "Data Platforms",
+    skills: [
+      "Enterprise data platforms",
+      "Distributed processing",
+      "CDC",
+      "Apache Iceberg",
+      "Parquet",
+      "Data modeling",
+    ],
+  },
+  {
+    label: "Technical Leadership",
+    skills: [
+      "Platform strategy",
+      "Architecture reviews",
+      "Stakeholder discovery",
+      "Engineering standards",
+      "CI/CD",
+      "Observability",
+      "AI-assisted development workflows",
+    ],
+  },
+];

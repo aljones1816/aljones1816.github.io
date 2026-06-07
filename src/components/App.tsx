@@ -1,17 +1,22 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import "../styles/App.css";
 import {
-  IconExternalLink,
-  IconChevronDown,
   IconBrandLinkedin,
   IconBrandGithub,
   IconMail,
-  IconNews,
-  IconCode,
   IconGitBranch,
-  IconClock,
+  IconServer,
+  IconUsers,
+  IconRefresh,
+  IconRobot,
+  IconChevronDown,
 } from "@tabler/icons-react";
-import { experiences, personalInfo, Experience } from "../assets/content";
+import {
+  personalInfo,
+  whatIDo,
+  caseStudies,
+  skillGroups,
+} from "../assets/content";
 import profilePic from "../assets/me.jpeg";
 
 interface FormattedCommit {
@@ -21,76 +26,237 @@ interface FormattedCommit {
   repo: string;
 }
 
-function StatsCard() {
+const WHAT_I_DO_ICONS = [
+  <IconServer size={24} />,
+  <IconUsers size={24} />,
+  <IconRefresh size={24} />,
+  <IconRobot size={24} />,
+];
+
+function Nav() {
+  return (
+    <nav className="site-nav">
+      <div className="nav-inner">
+        <span className="nav-name">Alan Jones</span>
+        <div className="nav-links">
+          <a href="#work">Work</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="hero-section" id="hero">
+      <div className="hero-inner">
+        <div className="hero-profile">
+          <img
+            src={profilePic}
+            alt={personalInfo.name}
+            className="hero-photo"
+          />
+          <div className="hero-text">
+            <div className="hero-meta">data_platform_engineer · portland_me</div>
+            <h1 className="hero-name">
+              {personalInfo.name}
+              <span className="hero-cursor" aria-hidden="true" />
+            </h1>
+            <h2 className="hero-title">{personalInfo.title}</h2>
+            <p className="hero-subheadline">{personalInfo.subheadline}</p>
+            <p className="hero-supporting">{personalInfo.supportingText}</p>
+            <div className="hero-location">
+              <span>📍 {personalInfo.location}</span>
+            </div>
+          </div>
+        </div>
+        <div className="hero-ctas">
+          <a
+            href={`mailto:${personalInfo.email}`}
+            className="cta-btn cta-email"
+          >
+            <IconMail size={18} />
+            <span>Email</span>
+          </a>
+          <a
+            href={personalInfo.github}
+            className="cta-btn cta-github"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <IconBrandGithub size={18} />
+            <span>GitHub</span>
+          </a>
+          <a
+            href={personalInfo.linkedin}
+            className="cta-btn cta-linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <IconBrandLinkedin size={18} />
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WhatIDo() {
+  return (
+    <section className="section what-i-do-section" id="what-i-do">
+      <div className="section-inner">
+        <h2 className="section-heading">What I Do</h2>
+        <div className="what-i-do-grid">
+          {whatIDo.map((item, i) => (
+            <div key={item.title} className="what-card">
+              <div className="what-card-header">
+                <span className="what-card-icon">{WHAT_I_DO_ICONS[i]}</span>
+                <h3 className="what-card-title">{item.title}</h3>
+              </div>
+              <div className="what-card-body">
+                <p className="what-card-desc">{item.description}</p>
+                <ul className="what-card-bullets">
+                  {item.bullets.map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CaseStudyCard({ study }: { study: (typeof caseStudies)[number] }) {
+  const [expanded, setExpanded] = useState(false);
+  return (
+    <div
+      className={`case-study-card ${expanded ? "expanded" : ""}`}
+      onClick={() => setExpanded(!expanded)}
+    >
+      <div className="case-study-header">
+        <h3 className="case-study-title">{study.title}</h3>
+        <span className="case-study-chevron">
+          <IconChevronDown size={18} />
+        </span>
+      </div>
+      <p className="case-study-desc">{study.description}</p>
+      <div className="case-study-bullets">
+        <ul>
+          {study.bullets.map((b) => (
+            <li key={b}>{b}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function SelectedWork() {
+  return (
+    <section className="section work-section" id="work">
+      <div className="section-inner">
+        <h2 className="section-heading">Selected Work</h2>
+        <div className="case-studies-grid">
+          {caseStudies.map((study) => (
+            <CaseStudyCard key={study.id} study={study} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TechnicalStrengths() {
+  return (
+    <section className="section skills-section" id="skills">
+      <div className="section-inner">
+        <h2 className="section-heading">Technical Strengths</h2>
+        <div className="skills-grid">
+          {skillGroups.map((group) => (
+            <div key={group.label} className="skill-group">
+              <h3 className="skill-group-label">{group.label}</h3>
+              <div className="skill-tags">
+                {group.skills.map((s) => (
+                  <span key={s} className="skill-tag">
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function About() {
+  return (
+    <section className="section about-section" id="about">
+      <div className="section-inner about-inner">
+        <h2 className="section-heading">About</h2>
+        <p className="about-bio">{personalInfo.bio}</p>
+      </div>
+    </section>
+  );
+}
+
+function CommitActivity() {
   const [showCommits, setShowCommits] = useState(false);
   const [commits, setCommits] = useState<FormattedCommit[]>([]);
   const [loading, setLoading] = useState(false);
+  const [totalCommits, setTotalCommits] = useState(0);
   const [isMobileModalOpen, setIsMobileModalOpen] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const hideTimeoutRef = useRef<number | null>(null);
   const modalRef = useRef<HTMLDivElement>(null);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
-  const [totalCommits, setTotalCommits] = useState(0);
 
   const formatDate = useCallback((dateString: string): string => {
     const date = new Date(dateString);
     const now = new Date();
     const diffInMinutes = Math.floor(
-      (now.getTime() - date.getTime()) / (1000 * 60),
+      (now.getTime() - date.getTime()) / (1000 * 60)
     );
-
-    if (diffInMinutes < 60) {
-      return `${diffInMinutes} minutes ago`;
-    } else if (diffInMinutes < 1440) {
+    if (diffInMinutes < 60) return `${diffInMinutes} minutes ago`;
+    if (diffInMinutes < 1440) {
       const hours = Math.floor(diffInMinutes / 60);
       return `${hours} hour${hours > 1 ? "s" : ""} ago`;
-    } else {
-      const days = Math.floor(diffInMinutes / 1440);
-      return `${days} day${days > 1 ? "s" : ""} ago`;
     }
+    const days = Math.floor(diffInMinutes / 1440);
+    return `${days} day${days > 1 ? "s" : ""} ago`;
   }, []);
 
   const API_BASE = import.meta.env.VITE_API_BASE_URL || "";
-  const fetchGitHubData = useCallback(async (): Promise<{
-    commits: FormattedCommit[];
-    totalCount: number;
-  }> => {
+
+  const fetchGitHubData = useCallback(async () => {
     try {
-      console.log(`${API_BASE}/api/github-events`);
       const res = await fetch(`${API_BASE}/api/github-events`);
-      console.log("Raw body:", res);
       const json = await res.json();
-      console.log("GitHub API response:", json);
-
       if (!res.ok) throw new Error(json.error || "Unknown error");
-
-      const formattedCommits = json.commits.map((c: any) => ({
-        ...c,
-        date: formatDate(c.date),
-      }));
-
+      const formatted = json.commits.map(
+        (c: { hash: string; message: string; date: string; repo: string }) => ({
+          ...c,
+          date: formatDate(c.date),
+        })
+      );
+      setCommits(formatted);
       setTotalCommits(json.totalCount);
-
-      return {
-        commits: formattedCommits,
-        totalCount: json.totalCount,
-      };
-    } catch (error) {
-      console.error("Error fetching GitHub summary:", error);
-
+    } catch {
       setTotalCommits(350);
-      return {
-        commits: [],
-        totalCount: 350,
-      };
     }
-  }, [formatDate]);
+  }, [formatDate, API_BASE]);
 
-  // Detect touch device
   useEffect(() => {
     setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0);
   }, []);
 
-  // Handle click outside to close modal on mobile
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -102,141 +268,52 @@ function StatsCard() {
         setIsMobileModalOpen(false);
       }
     };
-
     if (isMobileModalOpen) {
       document.addEventListener("mousedown", handleClickOutside);
-      return () =>
-        document.removeEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
     }
   }, [isMobileModalOpen, isTouchDevice]);
 
-  // Load commits and total count
   useEffect(() => {
-    const loadData = async () => {
-      setLoading(true);
-      const { commits: fetchedCommits, totalCount } = await fetchGitHubData();
-      setCommits(fetchedCommits);
-      setTotalCommits(totalCount);
-      setLoading(false);
-    };
-
-    loadData();
+    setLoading(true);
+    fetchGitHubData().finally(() => setLoading(false));
   }, [fetchGitHubData]);
 
-  // Cleanup timeout on unmount
-  useEffect(() => {
-    return () => {
-      if (hideTimeoutRef.current) {
-        clearTimeout(hideTimeoutRef.current);
-      }
-    };
-  }, []);
-
-  // Hover handlers with delay
   const handleMouseEnter = () => {
     if (!isTouchDevice) {
-      if (hideTimeoutRef.current) {
-        clearTimeout(hideTimeoutRef.current);
-        hideTimeoutRef.current = null;
-      }
+      if (hideTimeoutRef.current) clearTimeout(hideTimeoutRef.current);
       setShowCommits(true);
     }
   };
 
   const handleMouseLeave = () => {
     if (!isTouchDevice) {
-      hideTimeoutRef.current = setTimeout(() => {
-        setShowCommits(false);
-      }, 300); // 300ms delay before hiding
+      hideTimeoutRef.current = setTimeout(() => setShowCommits(false), 300);
     }
   };
-
-  const handleModalMouseEnter = () => {
-    if (!isTouchDevice && hideTimeoutRef.current) {
-      clearTimeout(hideTimeoutRef.current);
-      hideTimeoutRef.current = null;
-    }
-  };
-
-  const handleModalMouseLeave = () => {
-    if (!isTouchDevice) {
-      hideTimeoutRef.current = setTimeout(() => {
-        setShowCommits(false);
-      }, 200); // Shorter delay when leaving modal
-    }
-  };
-
-  // Mobile tap handler
-  const handleMobileTap = () => {
-    if (isTouchDevice) {
-      setIsMobileModalOpen(!isMobileModalOpen);
-    }
-  };
-
-  const stats = [
-    {
-      icon: <IconCode size={20} />,
-      label: "Years Coding",
-      value: "9+",
-      hasModal: false,
-    },
-    {
-      icon: <IconGitBranch size={20} />,
-      label: "Commits This Year",
-      value: loading ? "..." : `${totalCommits.toLocaleString()}+`,
-      hasModal: true,
-      onMouseEnter: handleMouseEnter,
-      onMouseLeave: handleMouseLeave,
-      onClick: handleMobileTap,
-    },
-    {
-      icon: <IconClock size={20} />,
-      label: "Coffee Consumed",
-      value: "∞",
-      hasModal: false,
-    },
-  ];
 
   return (
-    <div className="stats-card">
-      <h3 className="stats-title">Coding Stats</h3>
-      <div className="stats-grid">
-        {stats.map((stat, index) => (
-          <div
-            key={index}
-            className={`stat-item ${stat.hasModal ? "stat-item-hoverable" : ""}`}
-            onMouseEnter={stat.onMouseEnter}
-            onMouseLeave={stat.onMouseLeave}
-            onClick={stat.onClick}
-          >
-            <div className="stat-icon">{stat.icon}</div>
-            <div className="stat-content">
-              <div className="stat-value">{stat.value}</div>
-              <div className="stat-label">{stat.label}</div>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div
+      className="commit-activity"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={() => isTouchDevice && setIsMobileModalOpen(!isMobileModalOpen)}
+    >
+      <IconGitBranch size={16} />
+      <span>{loading ? "..." : `${totalCommits.toLocaleString()}+`} commits this year</span>
 
       {(showCommits || isMobileModalOpen) && (
-        <div
-          ref={modalRef}
-          className="commit-modal"
-          onMouseEnter={handleModalMouseEnter}
-          onMouseLeave={handleModalMouseLeave}
-        >
+        <div ref={modalRef} className="commit-modal">
           <div className="commit-modal-header">
-            <h4>Recent Commits</h4>
-            <span className="commit-count">
-              {loading ? "Loading..." : `${commits.length} shown`}
-            </span>
+            <span>Recent Commits</span>
+            <span className="commit-count">{commits.length} shown</span>
           </div>
           <div className="commit-list">
             {loading ? (
-              <div className="commit-loading">Fetching latest commits...</div>
+              <div className="commit-loading">Fetching commits…</div>
             ) : (
-              commits.map((commit, commitIndex) => (
-                <div key={commitIndex} className="commit-item">
+              commits.map((commit, i) => (
+                <div key={i} className="commit-item">
                   <div className="commit-hash">#{commit.hash}</div>
                   <div className="commit-content">
                     <div className="commit-message">{commit.message}</div>
@@ -255,172 +332,52 @@ function StatsCard() {
   );
 }
 
-function ExperienceCard({ item }: { item: Experience }) {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const toggleExpanded = () => {
-    setIsExpanded(!isExpanded);
-  };
-
+function Footer() {
   return (
-    <div
-      className={`timeline-card ${isExpanded ? "expanded" : ""}`}
-      onClick={toggleExpanded}
-    >
-      <div className="card-header">
-        <div className="card-info">
-          <h3 className="card-title">{item.title}</h3>
-          <div className="card-subtitle">{item.subtitle}</div>
-          <p className="card-description">{item.description}</p>
-          {item.location && (
-            <div className="card-location">📍 {item.location}</div>
-          )}
-        </div>
-        <div className="card-year">{item.year}</div>
-      </div>
-
-      <div className="expanded-content">
-        <p className="expanded-text">{item.expandedContent}</p>
-
-        {item.image && (
-          <div className="card-image">
-            <img src={item.image} alt={item.title} />
-          </div>
-        )}
-
-        {item.technologies && item.technologies.length > 0 && (
-          <div className="card-technologies">
-            {item.technologies.map((tech) => (
-              <div key={tech.name} className="tech-badge">
-                <img
-                  src={tech.icon}
-                  alt={tech.name}
-                  className="tech-icon"
-                  style={{
-                    filter: tech.color === "#000000" ? "invert(1)" : "none",
-                  }}
-                />
-                <span>{tech.name}</span>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {item.link && (
+    <footer className="site-footer" id="contact">
+      <div className="footer-inner">
+        <div className="footer-links">
+          <a href={`mailto:${personalInfo.email}`} className="footer-link">
+            <IconMail size={18} />
+            <span>{personalInfo.email}</span>
+          </a>
           <a
-            href={item.link}
-            className="card-link"
+            href={personalInfo.github}
+            className="footer-link"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
           >
-            <IconExternalLink size={16} />
-            View
+            <IconBrandGithub size={18} />
+            <span>GitHub</span>
           </a>
-        )}
+          <a
+            href={personalInfo.linkedin}
+            className="footer-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <IconBrandLinkedin size={18} />
+            <span>LinkedIn</span>
+          </a>
+          <CommitActivity />
+        </div>
+        <p className="footer-location">📍 {personalInfo.location}</p>
+        <p className="footer-credit">Designed and built by Alan Jones.</p>
       </div>
-
-      <div className="expand-indicator">
-        <IconChevronDown size={18} />
-      </div>
-    </div>
+    </footer>
   );
 }
 
 function App() {
   return (
     <div className="app">
-      {/* Personal Introduction */}
-      <section className="personal-intro">
-        <div className="intro-card">
-          <div className="intro-content">
-            <div className="intro-header">
-              <div className="name-and-photo">
-                <div className="name-container">
-                  <h1 className="first-name">Alan</h1>
-                  <h1 className="last-name">Jones</h1>
-                </div>
-                <div className="profile-photo-container">
-                  <img
-                    src={profilePic}
-                    alt={personalInfo.name}
-                    className="profile-photo"
-                  />
-                </div>
-              </div>
-              <div className="intro-tagline">
-                Building data-driven experiences for the modern web
-              </div>
-              <div className="intro-status-location">
-                <div className="profile-status">
-                  <div className="status-dot"></div>
-                  <span>Open to work</span>
-                </div>
-                <div className="intro-location">📍 {personalInfo.location}</div>
-              </div>
-            </div>
-            <p className="intro-bio">{personalInfo.bio}</p>
-            <div className="intro-interests">
-              {personalInfo.interests.map((interest, index) => (
-                <span key={index} className="interest-tag">
-                  {interest}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="intro-contacts">
-            <a
-              href="https://www.linkedin.com/in/almjones/"
-              className="contact-btn linkedin"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <IconBrandLinkedin size={20} />
-              <span>LinkedIn</span>
-            </a>
-            <a
-              href="https://github.com/aljones1816"
-              className="contact-btn github"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <IconBrandGithub size={20} />
-              <span>GitHub</span>
-            </a>
-            <a href="mailto:me@alanjones.dev" className="contact-btn email">
-              <IconMail size={20} />
-              <span>Email</span>
-            </a>
-            <a
-              href="https://blog.alanjones.dev"
-              className="contact-btn blog"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <IconNews size={20} />
-              <span>Blog</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline */}
-      <section className="timeline-container">
-        <div className="timeline-line"></div>
-
-        {experiences.map((item) => (
-          <div key={item.id} className="timeline-item">
-            <div className={`timeline-node ${item.type}`}></div>
-            <div className="timeline-content">
-              <ExperienceCard item={item} />
-            </div>
-          </div>
-        ))}
-
-        {/* Floating Stats Card */}
-        <StatsCard />
-      </section>
+      <Nav />
+      <Hero />
+      <WhatIDo />
+      <SelectedWork />
+      <TechnicalStrengths />
+      <About />
+      <Footer />
     </div>
   );
 }
