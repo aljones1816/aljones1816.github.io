@@ -13,7 +13,7 @@
   object-fit: cover;
   flex-shrink: 0;
   border: 1px solid var(--border-bright);
-  filter: sepia(40%) contrast(1.1) brightness(0.85) hue-rotate(80deg);
+  filter: grayscale(20%) contrast(1.05);
 }
 
 .about-header-text { flex: 1; }
