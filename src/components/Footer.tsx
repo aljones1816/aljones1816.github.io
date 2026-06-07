@@ -16,7 +16,7 @@ function CommitActivity() {
   const [totalCommits, setTotalCommits] = useState(0);
   const [isMobileModalOpen, setIsMobileModalOpen] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
-  const hideTimeoutRef = useRef<number | null>(null);
+  const hideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
   const formatDate = useCallback((dateString: string): string => {
