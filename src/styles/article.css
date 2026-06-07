@@ -1,9 +1,9 @@
-.article-page { background: var(--bg); }
+.article-page { background: transparent; }
 
 .article-inner {
   max-width: var(--article-width);
   margin: 0 auto;
-  padding: 2.5rem 2rem 5rem;
+  padding: 2rem 2rem 5rem;
 }
 
 .back-link {
@@ -11,160 +11,195 @@
   align-items: center;
   gap: 0.3rem;
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: var(--text-subtle);
   text-decoration: none;
-  letter-spacing: 0.05em;
-  margin-bottom: 2.5rem;
-  transition: color 0.18s ease;
+  letter-spacing: 0.06em;
+  margin-bottom: 2rem;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid;
+  border-top-color:   var(--bevel-dark);
+  border-left-color:  var(--bevel-dark);
+  border-bottom-color: var(--bevel-light);
+  border-right-color: var(--bevel-light);
+  background: var(--surface-2);
+  transition: color var(--transition);
 }
-.back-link:hover { color: var(--amber); }
+.back-link:hover { color: var(--cyan); }
 
-/* ─── Article header ─── */
-.article-header { margin-bottom: 0; }
+/* ─── Article header window ─── */
+.article-header {
+  border: 2px solid;
+  border-top-color:   var(--bevel-light);
+  border-left-color:  var(--bevel-light);
+  border-bottom-color: var(--bevel-dark);
+  border-right-color: var(--bevel-dark);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.article-header-titlebar {
+  background: linear-gradient(to right, var(--win-blue), var(--win-blue-2));
+  padding: 3px 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.article-header-titlebar-icon { font-size: 0.6rem; color: var(--silver); }
+.article-header-titlebar-name {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: bold;
+  color: white;
+  flex: 1;
+  letter-spacing: 0.03em;
+}
+.article-header-titlebar-btns {
+  display: flex;
+  gap: 2px;
+}
+
+.article-header-body {
+  background: var(--surface);
+  padding: 1.5rem;
+}
 
 .article-header-meta {
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: var(--text-subtle);
   letter-spacing: 0.08em;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
   display: flex;
   gap: 0.5rem;
   align-items: center;
 }
 
-.article-sep { opacity: 0.4; }
+.article-sep { opacity: 0.35; }
 
 .article-title {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--text);
+  font-family: var(--mono);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--amber);
   line-height: 1.2;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
   letter-spacing: -0.01em;
+  text-shadow: 0 0 20px var(--amber-glow);
 }
 
 .article-description {
-  font-size: 1.05rem;
+  font-size: 0.875rem;
   color: var(--text-muted);
   line-height: 1.65;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
   font-style: italic;
+  border-left: 3px solid var(--win-blue);
+  padding-left: 0.85rem;
 }
 
-.article-tags {
-  display: flex;
-  gap: 0.4rem;
-  flex-wrap: wrap;
-}
-
-.article-rule {
-  height: 1px;
-  background: var(--border);
-  margin: 2rem 0;
-}
+.article-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
 
 /* ─── Article prose ─── */
 .article-prose {
   color: var(--text);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   line-height: 1.85;
 }
 
-.article-prose p {
-  margin-bottom: 1.35rem;
-}
+.article-prose p { margin-bottom: 1.25rem; }
 
 .article-prose h2 {
-  font-size: 1.2rem;
+  font-family: var(--mono);
+  font-size: 0.82rem;
   font-weight: 700;
-  color: #fff;
-  margin-top: 2.75rem;
+  color: var(--cyan);
+  margin-top: 2.5rem;
   margin-bottom: 0.75rem;
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid var(--border);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid;
+  border-top-color:   var(--bevel-dark);
+  border-left-color:  var(--bevel-dark);
+  border-bottom-color: var(--bevel-light);
+  border-right-color: var(--bevel-light);
+  background: var(--surface-2);
+  display: inline-block;
 }
 
 .article-prose h3 {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: bold;
   color: var(--text);
-  margin-top: 1.75rem;
+  margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
-.article-prose strong {
-  color: #fff;
-  font-weight: 600;
-}
+.article-prose strong { color: white; font-weight: 700; }
+.article-prose em { color: var(--text); font-style: italic; }
 
-.article-prose em {
-  color: var(--text);
-  font-style: italic;
-}
-
-.article-prose ul,
-.article-prose ol {
+.article-prose ul, .article-prose ol {
   margin-left: 1.5rem;
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.25rem;
 }
-
-.article-prose li {
-  margin-bottom: 0.4rem;
-  line-height: 1.7;
-}
+.article-prose li { margin-bottom: 0.4rem; line-height: 1.7; }
 
 .article-prose code {
   font-family: var(--mono);
-  font-size: 0.875em;
+  font-size: 0.85em;
   background: var(--surface-2);
   color: var(--amber);
-  padding: 0.15em 0.4em;
-  border-radius: 3px;
+  padding: 0.1em 0.35em;
   border: 1px solid var(--border);
 }
 
 .article-prose pre {
   background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.25rem;
+  border: 2px solid;
+  border-top-color:   var(--bevel-dark);
+  border-left-color:  var(--bevel-dark);
+  border-bottom-color: var(--bevel-light);
+  border-right-color: var(--bevel-light);
+  padding: 1rem;
   overflow-x: auto;
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.25rem;
 }
 
 .article-prose pre code {
   background: none;
   border: none;
   padding: 0;
-  font-size: 0.85rem;
   color: var(--text);
 }
 
 .article-prose blockquote {
-  border-left: 3px solid var(--amber-dim);
-  padding: 0.25rem 0 0.25rem 1.25rem;
-  margin: 1.5rem 0;
+  border-left: 3px solid var(--win-blue);
+  padding: 0.25rem 0 0.25rem 1rem;
+  margin: 1.25rem 0;
   color: var(--text-muted);
+  background: var(--surface-2);
 }
 
 .article-loading {
   font-family: var(--mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-subtle);
   padding: 2rem 0;
 }
 
 .article-footer {
-  margin-top: 3.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid;
+  border-top-color: var(--bevel-dark);
+  border-bottom: 1px solid;
+  border-bottom-color: var(--bevel-light);
 }
 
 @media (max-width: 640px) {
-  .article-inner { padding: 2rem 1rem 4rem; }
-  .article-title { font-size: 1.65rem; }
-  .article-prose { font-size: 1rem; }
+  .article-inner { padding: 1.5rem 1rem 4rem; }
+  .article-title { font-size: 1.3rem; }
+  .article-prose { font-size: 0.9rem; }
 }
