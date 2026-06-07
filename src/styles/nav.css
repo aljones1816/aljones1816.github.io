@@ -55,6 +55,25 @@
   border-bottom-color: var(--blue);
 }
 
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.3rem;
+  margin-left: 0.25rem;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+.theme-toggle:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: var(--surface-2);
+}
+
 @media (max-width: 560px) {
   .nav-inner { padding: 0 1rem; }
   .nav-links a { padding: 0.85rem 0.6rem; font-size: 0.78rem; }

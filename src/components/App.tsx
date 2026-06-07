@@ -7,13 +7,16 @@ import ArticlePage from "./pages/ArticlePage";
 import WorkPage from "./pages/WorkPage";
 import PrinciplesPage from "./pages/PrinciplesPage";
 import AboutPage from "./pages/AboutPage";
+import { useTheme } from "../hooks/useTheme";
 import "../styles/App.css";
 
 export default function App() {
+  const [theme, toggleTheme] = useTheme();
+
   return (
     <HashRouter>
       <div className="app">
-        <Nav />
+        <Nav theme={theme} onToggleTheme={toggleTheme} />
         <main className="main-content">
           <Routes>
             <Route path="/"               element={<HomePage />} />
