@@ -1,0 +1,103 @@
+.notes-page { background: var(--bg); }
+
+/* ─── Tag filter ─── */
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+
+.tag-btn {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-subtle);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.7rem;
+  border-radius: 3px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.18s ease;
+}
+.tag-btn:hover { color: var(--text); border-color: var(--text-muted); }
+.tag-btn.active {
+  color: var(--amber);
+  border-color: var(--amber-dim);
+  background: var(--amber-glow);
+}
+
+/* ─── Notes list ─── */
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.note-row {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  text-decoration: none;
+  transition: background 0.18s ease;
+}
+.note-row:last-child { border-bottom: none; }
+.note-row:hover { background: var(--surface-2); }
+.note-row:hover .note-title { color: var(--amber); }
+.note-row:hover .note-arrow { color: var(--amber); }
+
+.note-row-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex-shrink: 0;
+  min-width: 90px;
+  padding-top: 0.15rem;
+}
+
+.note-date,
+.note-reading-time {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--text-subtle);
+  letter-spacing: 0.04em;
+}
+
+.note-row-content { flex: 1; }
+
+.note-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 0.4rem;
+  transition: color 0.18s ease;
+}
+
+.note-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+}
+
+.note-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+
+.note-arrow {
+  color: var(--text-subtle);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  transition: color 0.18s ease;
+}
+
+@media (max-width: 600px) {
+  .note-row { flex-wrap: wrap; gap: 0.75rem; }
+  .note-row-meta { flex-direction: row; gap: 0.75rem; min-width: 0; }
+  .note-arrow { display: none; }
+}

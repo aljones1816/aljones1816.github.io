@@ -2,64 +2,17 @@ export const personalInfo = {
   name: "Alan Jones",
   location: "Portland, Maine",
   title: "Data Platform Engineer & Technical Lead",
-  subheadline:
-    "I design and modernize enterprise data platforms, helping teams turn business needs into reliable, scalable systems.",
-  supportingText:
-    "My work spans cloud-native data infrastructure, distributed processing, orchestration, stakeholder discovery, and engineering standards for business-critical data platforms.",
-  bio: "I'm a data platform engineer based in Portland, Maine. My background combines software engineering, data systems, and scientific computing, with an M.S. in Earth Science (computational data focus) from UC Santa Barbara and a B.S. in Geology from the University of New Hampshire. Most of my recent work has focused on enterprise data platform modernization: replacing fragile legacy systems, improving reliability, defining technical roadmaps, and helping teams build data systems that are easier to operate and evolve. I care about pragmatic engineering: simple architecture, clear ownership, strong operational visibility, and tools that help teams move faster without losing discipline. Outside of work, I build independent software projects, explore practical AI-assisted development workflows, and spend time in Maine with my family.",
+  heroCopy:
+    "I write about building reliable data platforms, modernizing legacy systems, and using AI-assisted engineering without losing engineering discipline.",
+  bio: "I'm a data platform engineer and technical lead based in Maine. My work focuses on enterprise data platforms: ingestion, orchestration, distributed processing, reliability, and the engineering practices that make large systems easier to operate. I like the part of engineering where technical design meets business reality — understanding what people actually need, finding the real constraints, and turning that into architecture teams can build and maintain. Before moving into software and data engineering, I worked in computational earth science and paleoclimate research. That background still shapes how I think about data, uncertainty, and complex systems. Outside of work, I build side projects, experiment with practical AI-assisted development workflows, and spend time outdoors with my family.",
+  education: [
+    "M.S. Earth Science (Computational data focus) — UC Santa Barbara",
+    "B.S. Geology — University of New Hampshire",
+  ],
   email: "me@alanjones.dev",
   github: "https://github.com/aljones1816",
   linkedin: "https://www.linkedin.com/in/almjones/",
 };
-
-export interface WhatIDoItem {
-  title: string;
-  description: string;
-  bullets: string[];
-}
-
-export const whatIDo: WhatIDoItem[] = [
-  {
-    title: "Platform Architecture",
-    description:
-      "Designing enterprise data platforms, distributed processing systems, and cloud-native runtime architectures for reliable data movement and analytics.",
-    bullets: [
-      "Data ingestion and orchestration",
-      "Snowflake, Airflow, AWS, Python",
-      "Execution tracking, recovery, and auditability",
-    ],
-  },
-  {
-    title: "Technical Leadership",
-    description:
-      "Working with business, product, architecture, and engineering stakeholders to define technical direction and turn organizational priorities into engineering roadmaps.",
-    bullets: [
-      "Architecture reviews",
-      "Platform roadmaps",
-      "Cross-team standards",
-    ],
-  },
-  {
-    title: "Modernization",
-    description:
-      "Replacing fragile legacy systems with maintainable, observable, containerized services that are safer to operate and easier to scale.",
-    bullets: [
-      "ECS/Fargate runtime services",
-      "Legacy ETL modernization",
-      "Safe retries and operational recovery",
-    ],
-  },
-  {
-    title: "AI-Assisted Engineering",
-    description:
-      "Establishing safe AI-assisted engineering workflows that improve development speed, code review, documentation, and testing without sacrificing engineering discipline.",
-    bullets: [
-      "AI-assisted code review and testing",
-      "Guardrails and access controls",
-      "Team enablement and workflow design",
-    ],
-  },
-];
 
 export interface CaseStudy {
   id: string;
@@ -73,7 +26,7 @@ export const caseStudies: CaseStudy[] = [
     id: "platform-modernization",
     title: "Enterprise Data Platform Modernization",
     description:
-      "Technical lead for an enterprise data platform supporting approximately 500 data pipelines and organization-wide reporting, analytics, and operational data products. Defined and led a modernization strategy replacing legacy server-based ETL infrastructure with containerized extraction, ingestion, and processing services on AWS ECS/Fargate.",
+      "Technical lead for an enterprise data platform supporting approximately 500 data pipelines and organization-wide reporting, analytics, and operational data products. Led modernization from legacy server-based ETL infrastructure to containerized extraction, ingestion, and processing services on AWS ECS/Fargate.",
     bullets: [
       "Migrated 300+ SAP ingestion pipelines to the new runtime architecture",
       "Reduced on-call incidents from 5–8 per week to less than one on average",
@@ -82,14 +35,26 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
+    id: "platform-performance",
+    title: "Platform Performance and Developer Productivity",
+    description:
+      "Designed and delivered foundational platform improvements across data latency, query performance, schema safety, and developer tooling.",
+    bullets: [
+      "Reduced data latency by 70% through incremental processing patterns",
+      "Improved P95 query latency by 60% and reduced storage costs ~20%",
+      "Built schema evolution framework supporting 200+ analytical models",
+      "Developed shared libraries adopted across a 12-engineer team",
+    ],
+  },
+  {
     id: "roadmap-discovery",
     title: "Platform Roadmap and Stakeholder Discovery",
     description:
-      "Worked with business, product, architecture, and engineering stakeholders to refine the multi-year roadmap for an enterprise data platform. Interviewed stakeholders, evaluated current pain points, challenged outdated assumptions, and translated organizational needs into platform priorities that leadership adopted and began implementing.",
+      "Worked with business, product, architecture, and engineering stakeholders to refine a multi-year platform roadmap. Interviewed stakeholders, evaluated pain points, and translated organizational needs into adopted modernization priorities.",
     bullets: [
-      "Interviewed 7 key stakeholders to understand business needs and operational pain points",
+      "Interviewed 7 stakeholders to understand platform needs and pain points",
       "Helped align platform investment with long-term data strategy",
-      "Influenced team realignment between platform engineering and business-facing analytics work",
+      "Influenced team realignment between platform engineering and analytics work",
       "Helped clarify ownership boundaries across platform, modeling, and SAP support teams",
     ],
   },
@@ -97,38 +62,77 @@ export const caseStudies: CaseStudy[] = [
     id: "ai-engineering",
     title: "Safe AI-Assisted Engineering Practices",
     description:
-      "Established standards and workflows for AI-assisted software development across platform modernization work, including tooling, access controls, review practices, and team enablement. The goal was not to replace engineering judgment, but to make design, testing, migration, review, and documentation work faster and more reliable.",
+      "Established standards and workflows for AI-assisted software development across platform modernization work, including tooling, access controls, review practices, and team enablement.",
     bullets: [
-      "Helped accelerate migration of 300+ pipelines from a months-long roadmap item into a days/weeks execution window",
-      "Introduced AI-assisted PR review, commit recommendations, test generation, and documentation workflows",
-      "Defined safe agent usage patterns, including controlled read-only AWS access for development support",
-      "Led team enablement on how to use AI safely and effectively in engineering workflows",
-    ],
-  },
-  {
-    id: "platform-performance",
-    title: "Platform Performance and Developer Productivity",
-    description:
-      "Designed and delivered foundational platform improvements across data latency, query performance, schema safety, and developer tooling. Work spanned incremental processing patterns, transformation optimization, schema evolution frameworks, and shared engineering libraries adopted across the platform team.",
-    bullets: [
-      "Reduced data latency by 70% through incremental processing patterns that eliminated costly full-table reprocessing",
-      "Improved P95 query latency by 60% and reduced storage costs by approximately 20% on large-scale transformation workloads",
-      "Built schema evolution and compatibility frameworks supporting 200+ analytical models, enabling safer platform changes",
-      "Developed shared platform libraries and tooling adopted across a 12-engineer team, improving consistency and developer productivity",
+      "Helped accelerate migration of 300+ pipelines into a days/weeks execution window",
+      "Introduced AI-assisted PR review, test generation, and documentation workflows",
+      "Defined safe usage patterns including controlled read-only AWS access",
+      "Led team enablement on practical and responsible AI-assisted engineering",
     ],
   },
   {
     id: "energy-analytics",
     title: "Massachusetts Energy Analytics Platform",
     description:
-      "Designed data models and processing pipelines supporting Massachusetts statewide energy efficiency programs, including reporting and analytics across electric and gas utilities. The platform supported regulatory reporting, public transparency, and program effectiveness analysis.",
+      "Designed data models and processing pipelines supporting Massachusetts statewide energy efficiency programs, including reporting and analytics across electric and gas utilities.",
     bullets: [
       "Modernized legacy SAS workflows to Python and Airflow",
       "Introduced automated testing, monitoring, and recovery practices",
       "Reduced pipeline failures by 30%",
-      "Supported analytics for energy usage, program participation, savings, and consumer impact",
+      "Supported regulatory reporting, public transparency, and program effectiveness analysis",
     ],
   },
+];
+
+export interface Principle {
+  number: string;
+  title: string;
+  body: string;
+  relatedSlug?: string;
+}
+
+export const principles: Principle[] = [
+  {
+    number: "01",
+    title: "Make retries safe.",
+    body: "Recovery should not require heroics. A failed job should leave behind enough state to understand what happened and enough structure to retry safely.",
+    relatedSlug: "make-retries-safe",
+  },
+  {
+    number: "02",
+    title: "Make execution disposable and state durable.",
+    body: "Compute should be replaceable. State should be explicit, queryable, and owned. If you can't throw away a server and start fresh, the server has too much responsibility.",
+    relatedSlug: "long-running-etl-servers",
+  },
+  {
+    number: "03",
+    title: "Architecture follows ownership.",
+    body: "Systems are easier to operate when team responsibilities match the way the platform is built. Design systems people can actually own.",
+    relatedSlug: "architecture-follows-ownership",
+  },
+  {
+    number: "04",
+    title: "Business needs should shape platform design.",
+    body: "Platform work should start with real user pain, not abstract technical preference. The best architectural decisions are grounded in what people actually need to do.",
+  },
+  {
+    number: "05",
+    title: "AI should reduce toil, not judgment.",
+    body: "AI-assisted workflows are most valuable when they improve testing, review, documentation, and migration work — while keeping engineers accountable for design decisions.",
+    relatedSlug: "ai-reduce-toil",
+  },
+  {
+    number: "06",
+    title: "Readable systems age better.",
+    body: "Simple patterns, clear naming, consistent standards, and good documentation compound over time. A system that a new engineer can understand in a day costs less to operate than one that requires tribal knowledge.",
+  },
+];
+
+export const impactMetrics = [
+  { value: "~500", label: "pipelines supported" },
+  { value: "300+", label: "pipelines migrated" },
+  { value: "5–8 → <1", label: "on-call incidents / week" },
+  { value: "−70%", label: "data latency" },
 ];
 
 export interface SkillGroup {
@@ -147,25 +151,10 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     label: "Data Platforms",
-    skills: [
-      "Enterprise data platforms",
-      "Distributed processing",
-      "CDC",
-      "Apache Iceberg",
-      "Parquet",
-      "Data modeling",
-    ],
+    skills: ["Enterprise data platforms", "Distributed processing", "CDC", "Apache Iceberg", "Parquet", "Data modeling"],
   },
   {
     label: "Technical Leadership",
-    skills: [
-      "Platform strategy",
-      "Architecture reviews",
-      "Stakeholder discovery",
-      "Engineering standards",
-      "CI/CD",
-      "Observability",
-      "AI-assisted development workflows",
-    ],
+    skills: ["Platform strategy", "Architecture reviews", "Stakeholder discovery", "Engineering standards", "CI/CD", "Observability", "AI-assisted development"],
   },
 ];
