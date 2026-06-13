@@ -119,7 +119,7 @@ export const principles: Principle[] = [
     number: "05",
     title: "AI should reduce toil, not judgment.",
     body: "AI-assisted workflows are most valuable when they improve testing, review, documentation, and migration work — while keeping engineers accountable for design decisions.",
-    relatedSlug: "ai-reduce-toil",
+    relatedSlug: "ai-makes-implementation-cheap",
   },
   {
     number: "06",

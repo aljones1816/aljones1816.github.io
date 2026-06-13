@@ -50,14 +50,14 @@ export const notes: ArticleEntry[] = [
   },
   {
     meta: {
-      slug: "ai-reduce-toil",
-      title: "AI Should Reduce Toil, Not Engineering Judgment",
+      slug: "ai-makes-implementation-cheap",
+      title: "AI Makes Implementation Cheap. Judgment Becomes More Important.",
       description:
-        "AI-assisted engineering is most useful when it strengthens existing engineering practices: testing, review, documentation, migration.",
+        "AI can generate code remarkably well. The harder problem is deciding what should be built in the first place.",
       date: "2026-05-04",
-      tags: ["ai", "engineering-practices", "workflow"],
+      tags: ["ai", "architecture", "engineering"],
       draft: false,
-      readingTime: "5 min",
+      readingTime: "3 min",
     },
     load: () => import("./notes/ai-reduce-toil"),
   },
