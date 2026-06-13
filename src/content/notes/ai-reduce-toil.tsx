@@ -1,4 +1,3 @@
-tsx;
 export const meta = {
   slug: "ai-makes-implementation-cheap",
   title: "AI Makes Implementation Cheap. Judgment Becomes More Important.",
